@@ -16,7 +16,7 @@ public class VersionController {
 	// @RequestMapping (method=RequestMethod.GET, path="/version")
 	public ResponseEntity<String> getVersion() throws Exception {
 
-		log.info("Version method called");
+		log.info("Version method called!");
 		Version version = new Version();
 		version.setVersionNum("0.2");
 		return ResponseEntity.ok(version.getVersionNum());
