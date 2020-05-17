@@ -1,15 +1,16 @@
 package com.shri.demo.dto;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
-
+@Builder
 public class Version {
 
-	private String versionNum;
+	@Builder.Default
+	private String versionNum = "0";
 
 }

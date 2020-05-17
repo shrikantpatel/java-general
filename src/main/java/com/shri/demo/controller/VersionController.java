@@ -17,8 +17,7 @@ public class VersionController {
 	public ResponseEntity<String> getVersion() throws Exception {
 
 		log.info("Version method called!");
-		Version version = new Version();
-		version.setVersionNum("0.2");
+		Version version = Version.builder().versionNum("0.1").build();
 		return ResponseEntity.ok(version.getVersionNum());
 	}
 }
