@@ -7,8 +7,10 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class Lombok_Test {
@@ -63,6 +65,7 @@ public class Lombok_Test {
         Assert.assertArrayEquals(new String[]{"shri", "happy"}, person.getTags().toArray());
         Assert.assertArrayEquals(new String[]{"sports", "outdoors"}, person.getInterests().toArray());
         Assert.assertEquals(new HashSet<>(Arrays.asList("smart", "hardworking")), person.getAttribute());
+
     }
 }
 
