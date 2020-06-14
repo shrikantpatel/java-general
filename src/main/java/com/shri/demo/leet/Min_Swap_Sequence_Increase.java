@@ -30,7 +30,7 @@ import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class Min_Swam_Sequence_Increase {
+public class Min_Swap_Sequence_Increase {
 
     public int minSwap(int[] A, int[] B) {
 
@@ -62,7 +62,7 @@ public class Min_Swam_Sequence_Increase {
 
     @Test
     public void testScenario1() {
-        Min_Swam_Sequence_Increase test = new Min_Swam_Sequence_Increase();
+        Min_Swap_Sequence_Increase test = new Min_Swap_Sequence_Increase();
         int[] A = {1, 3, 5, 4};
         int[] B = {1, 2, 3, 7};
         Assert.assertEquals(1, test.minSwap(A, B));
@@ -70,7 +70,7 @@ public class Min_Swam_Sequence_Increase {
 
     @Test
     public void testScenario2() {
-        Min_Swam_Sequence_Increase test = new Min_Swam_Sequence_Increase();
+        Min_Swap_Sequence_Increase test = new Min_Swap_Sequence_Increase();
         int[] A = {0, 4, 4, 5, 9};
         int[] B = {0, 1, 6, 8, 10};
         Assert.assertEquals(1, test.minSwap(A, B));
@@ -78,7 +78,7 @@ public class Min_Swam_Sequence_Increase {
 
     @Test
     public void testScenario3() {
-        Min_Swam_Sequence_Increase test = new Min_Swam_Sequence_Increase();
+        Min_Swap_Sequence_Increase test = new Min_Swap_Sequence_Increase();
         int[] A = {3, 3, 8, 9, 10};
         int[] B = {1, 7, 4, 6, 8};
         Assert.assertEquals(1, test.minSwap(A, B));
