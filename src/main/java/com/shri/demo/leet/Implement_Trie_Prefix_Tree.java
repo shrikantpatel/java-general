@@ -24,75 +24,62 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Implement_Trie_Prefix_Tree {
 
     private Node trie;
 
-    /**
-     * Initialize your data structure here.
-     */
     public Implement_Trie_Prefix_Tree() {
-        trie = new Node("");
+       trie = new Node("");
     }
 
     private class Node {
-        HashMap<Character, Node> children;
         boolean isWord = false;
         String prefix;
+        Map<Character, Node> children;
 
         public Node(String prefix) {
             this.prefix = prefix;
-            children = new HashMap<>();
+            children = new HashMap();
         }
     }
 
-    /**
-     * Inserts a word into the trie.
-     */
-    public void insert(String word) {
+    public void insert (String word) {
+        Node node = trie;
 
-        Node curr = trie;
         int i = 0;
         for (char c : word.toCharArray()) {
-            if (curr.children.containsKey(c)) {
-                curr = curr.children.get(c);
+            if (node.children.containsKey(c)) {
+                node = node.children.get(c);
             } else {
-                Node temp = new Node(word.substring(0, i + 1));
-                curr.children.put(c, temp);
-                curr = temp;
+                Node newNode = new Node(word.substring(0, ++i));
+                node.children.put(c, newNode);
+                node = newNode;
             }
-            i++;
         }
-        curr.isWord = true;
+        node.isWord = true;
     }
 
-    /**
-     * Returns if the word is in the trie.
-     */
     public boolean search(String word) {
-        Node curr = trie;
+        Node node = trie;
 
         for (char c : word.toCharArray()) {
-            if (curr.children.containsKey(c)) {
-                curr = curr.children.get(c);
+            if (node.children.containsKey(c)) {
+                node = node.children.get(c);
             } else {
                 return false;
             }
         }
-
-        return curr.isWord;
+        return node.isWord;
     }
 
-    /**
-     * Returns if there is any word in the trie that starts with the given prefix.
-     */
-    public boolean startsWith(String prefix) {
-        Node curr = trie;
+    public boolean startsWith(String partialWord) {
+        Node node = trie;
 
-        for (char c : prefix.toCharArray()) {
-            if (curr.children.containsKey(c)) {
-                curr = curr.children.get(c);
+        for (char c : partialWord.toCharArray()) {
+            if (node.children.containsKey(c)) {
+                node = node.children.get(c);
             } else {
                 return false;
             }
@@ -108,6 +95,7 @@ public class Implement_Trie_Prefix_Tree {
         Assert.assertTrue(trie.search("apple"));   // returns true
         Assert.assertFalse(trie.search("app"));     // returns false
         Assert.assertTrue(trie.startsWith("app")); // returns true
+        Assert.assertFalse(trie.startsWith("appt")); // returns true
         trie.insert("app");
         Assert.assertTrue(trie.search("app"));     // returns true
     }
