@@ -11,8 +11,8 @@ public class Fibonacci_Recursive {
     //recursive way
     public int fib_recursive(int n) {
 
-        if (n<= 1) return n;
-        return fib_recursive(n-1) +fib_recursive(n-2);
+        if (n <= 1) return n;
+        return fib_recursive(n-1) + fib_recursive(n-2);
     }
 
     //Dynamic programing way
@@ -25,12 +25,9 @@ public class Fibonacci_Recursive {
         f[0] = 0;
         f[1] = 1;
 
-        for (int i = 2; i <= n; i++) {
-       /* Add the previous 2 numbers in the series
-         and store it */
-            f[i] = f[i - 1] + f[i - 2];
+        for (int i=2 ; i<=n; i++) {
+            f[i] = f[i-1] + f[i-2];
         }
-
         return f[n];
     }
 
