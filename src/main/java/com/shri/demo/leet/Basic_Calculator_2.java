@@ -142,6 +142,7 @@ public class Basic_Calculator_2 {
         Basic_Calculator_2 test = new Basic_Calculator_2();
         assertEquals(10, test.calculate("2*3+4"));
     }
+
     @Test
     public void testScenario12() {
         Basic_Calculator_2 test = new Basic_Calculator_2();
@@ -152,5 +153,11 @@ public class Basic_Calculator_2 {
     public void testScenario13() {
         Basic_Calculator_2 test = new Basic_Calculator_2();
         assertEquals(-144, test.calculate("-12*12"));
+    }
+
+    @Test
+    public void testScenario14() {
+        Basic_Calculator_2 test = new Basic_Calculator_2();
+        assertEquals(4, test.calculate("-2*-2"));
     }
 }
