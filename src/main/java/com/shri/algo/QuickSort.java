@@ -9,44 +9,48 @@ public class QuickSort {
     public int[] sort(int[] intArray, int begin, int end) {
 
         if (begin < end) {
-            int partition = partition(intArray, begin, end);
-            sort(intArray, begin, partition-1);
-            sort(intArray, partition + 1, end);
+
+            int partitionIndex = partition(intArray, begin, end);
+
+            // sort the array to left of the pivot
+            sort(intArray, begin, partitionIndex - 1);
+
+            // sort the array to right of the pivot
+            sort(intArray, partitionIndex + 1, end);
         }
         return intArray;
     }
 
     public int partition(int[] array, int begin, int end) {
 
-        // choose the rightmost element as pivot
+        // select the right most element as pivot
         int pivot = array[end];
 
-        // pointer for greater element
-        int i = (begin - 1);
+        // array index for the element greater than pivot
+        int i = begin - 1;
 
-        // traverse through all elements
-        // compare each element with pivot
-        for (int j = begin; j < end; j++) {
-            if (array[j] <= pivot) {
+        // array index for the element smaller than pivot
+        int j = begin;
 
-                // if element smaller than pivot is found
-                // swap it with the greater element pointed by i
+        int temp = 0;
+
+        for (j = begin; j < end; j++) {
+
+            if (array[j] < pivot) {
                 i++;
 
-                // swapping element at i with element at j
-                int temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
+                // swap the smaller and greater element
+                temp = array[j];
+                array[j] = array[i];
+                array[i] = temp;
             }
-
         }
-        // swapt the pivot element with the greater element specified by i
-        int temp = array[i + 1];
-        array[i + 1] = array[end];
-        array[end] = temp;
 
-        // return the position from where partition is done
-        return (i + 1);
+        // swap the pivot with greater element
+        array[end] = array[i + 1];
+        array[i + 1] = pivot;
+
+        return i + 1;
     }
 
 
