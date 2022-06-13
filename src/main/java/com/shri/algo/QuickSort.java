@@ -6,66 +6,71 @@ import org.junit.Test;
 
 public class QuickSort {
 
-    public int[] sort(int[] intArray, int low, int high) {
+    public int[] sort(int[] intArray, int begin, int end) {
 
-        if (low < high) {
-            int partition = partition(intArray, low, high);
-            sort(intArray, low, partition);
-            sort(intArray, partition + 1, high);
+        if (begin < end) {
+            int partition = partition(intArray, begin, end);
+            sort(intArray, begin, partition-1);
+            sort(intArray, partition + 1, end);
         }
         return intArray;
     }
 
-    public int partition(int[] intArray, int low, int high) {
+    public int partition(int[] array, int begin, int end) {
 
-        int i = low;
-        int j = high;
-        int pivot = intArray[low];
-        int temp = 0;
+        // choose the rightmost element as pivot
+        int pivot = array[end];
 
-        while (i < j) {
-            do {
+        // pointer for greater element
+        int i = (begin - 1);
+
+        // traverse through all elements
+        // compare each element with pivot
+        for (int j = begin; j < end; j++) {
+            if (array[j] <= pivot) {
+
+                // if element smaller than pivot is found
+                // swap it with the greater element pointed by i
                 i++;
-            } while (intArray[i] <= pivot);
 
-            do {
-                j--;
-            } while (intArray[j] > pivot);
-
-            if (i < j) {
-                temp = intArray[i];
-                intArray[i] = intArray[j];
-                intArray[j] = temp;
+                // swapping element at i with element at j
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
             }
+
         }
-        temp = intArray[low];
-        intArray[low] = intArray[j];
-        intArray[j] = temp;
-        return j;
+        // swapt the pivot element with the greater element specified by i
+        int temp = array[i + 1];
+        array[i + 1] = array[end];
+        array[end] = temp;
+
+        // return the position from where partition is done
+        return (i + 1);
     }
 
 
     @Test
     public void test1() {
         QuickSort toTest = new QuickSort();
-        int[] input = new int[]{10, 23, 2, 4, 6, 7, Integer.MAX_VALUE};
-        int[] output = toTest.sort(input, 0, 6);
+        int[] input = new int[]{10, 23, 2, 4, 6, 7};
+        int[] output = toTest.sort(input, 0, input.length - 1);
         for (int i = 0; i < output.length; i++) {
             System.out.print(output[i] + ", ");
         }
         System.out.println();
-        Assert.assertArrayEquals((new int[]{2, 4, 6, 7, 10, 23, Integer.MAX_VALUE}), output);
+        Assert.assertArrayEquals((new int[]{2, 4, 6, 7, 10, 23}), output);
     }
 
     @Test
     public void test2() {
         QuickSort toTest = new QuickSort();
-        int[] input = new int[]{23, 10, 6, 4, 2, 7, Integer.MAX_VALUE};
-        int[] output = toTest.sort(input, 0, 6);
+        int[] input = new int[]{2, 10, 6, 4, 23, 7};
+        int[] output = toTest.sort(input, 0, input.length - 1);
         for (int i = 0; i < output.length; i++) {
             System.out.print(output[i] + ", ");
         }
         System.out.println();
-        Assert.assertArrayEquals((new int[]{2, 4, 6, 7, 10, 23, Integer.MAX_VALUE}), output);
+        Assert.assertArrayEquals((new int[]{2, 4, 6, 7, 10, 23}), output);
     }
 }
