@@ -27,7 +27,7 @@ public class QuickSort {
         int pivot = array[end];
 
         // array index for the element greater than pivot
-        int i = begin - 1;
+        int i = begin-1;
 
         // array index for the element smaller than pivot
         int j = begin;
@@ -76,5 +76,17 @@ public class QuickSort {
         }
         System.out.println();
         Assert.assertArrayEquals((new int[]{2, 4, 6, 7, 10, 23}), output);
+    }
+
+    @Test
+    public void test3() {
+        QuickSort toTest = new QuickSort();
+        int[] input = new int[]{100, 2, 10, 50, 3, 101, 5};
+        int[] output = toTest.sort(input, 0, input.length - 1);
+        for (int i = 0; i < output.length; i++) {
+            System.out.print(output[i] + ", ");
+        }
+        System.out.println();
+        Assert.assertArrayEquals((new int[]{2, 3, 5, 10, 50, 100, 101}), output);
     }
 }
