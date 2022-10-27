@@ -3,6 +3,9 @@ package com.shri.demo.leet;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /*
 523. Continuous Subarray Sum
 
@@ -31,7 +34,8 @@ You may assume the sum of all the numbers is in the range of a signed 32-bit int
  */
 public class Continuous_Subarray_Sum {
 
-    public boolean checkSubarraySum(int[] nums, int k) {
+    //Time Limit Exceeded
+    public boolean checkSubarraySum1(int[] nums, int k) {
 
         int size = nums.length;
         int[] sums = new int[size];
@@ -52,16 +56,43 @@ public class Continuous_Subarray_Sum {
         return false;
     }
 
+    public boolean checkSubarraySum(int[] nums, int k) {
+
+        if (nums == null) {
+            return false;
+        }
+
+        Set<Integer> set = new HashSet<>();
+        int sum = 0;
+        int preMod = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            int mod = k == 0 ? sum : sum % k;
+            if (set.contains(mod)) {
+                return true;
+            }
+            set.add(preMod);
+            preMod = mod;
+        }
+        return false;
+    }
+
     @Test
     public void test1() {
         Continuous_Subarray_Sum toTest = new Continuous_Subarray_Sum();
-        Assert.assertEquals(true, toTest.checkSubarraySum(new int[]{23, 2, 4, 6, 7}, 6));
+        Assert.assertEquals(true, toTest.checkSubarraySum(new int[]{23, 2, 2, 4, 6, 7}, 6));
     }
 
     @Test
     public void test2() {
         Continuous_Subarray_Sum toTest = new Continuous_Subarray_Sum();
         Assert.assertEquals(true, toTest.checkSubarraySum(new int[]{23, 2, 6, 4, 7}, 6));
+    }
+
+    @Test
+    public void test5() {
+        Continuous_Subarray_Sum toTest = new Continuous_Subarray_Sum();
+        Assert.assertEquals(true, toTest.checkSubarraySum(new int[]{23, 2, 4, 6, 6}, 7));
     }
 
     @Test
