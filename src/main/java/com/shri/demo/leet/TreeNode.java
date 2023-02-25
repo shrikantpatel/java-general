@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -81,12 +82,13 @@ public class TreeNode {
         return node;
     }
 
+    // Breadth first search
     public static List<Integer> convertTreeToArray(TreeNode root) {
         List<Integer> elementsArrangeByLevel = new ArrayList<Integer>();
 
         //IMP using queue as its FIFO, FIFO \ Queue structure best describes
         //how to track which node are avialable to add the child node as we iterate through the list
-        Queue<TreeNode> nodeAvailable = new ArrayBlockingQueue<TreeNode>(100);
+        Queue<TreeNode> nodeAvailable = new LinkedList<>();
         nodeAvailable.add(root);
         elementsArrangeByLevel.add(root.val);
         TreeNode node = null;

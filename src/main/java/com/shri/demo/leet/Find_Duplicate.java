@@ -30,7 +30,7 @@ nums.length == n + 1
 1 <= nums[i] <= n
 All the integers in nums appear only once except for precisely one integer which appears two or more times.
 */
-public class Solution {
+public class Find_Duplicate {
 
     public int findDuplicate1(int[] nums) {
         Arrays.sort(nums);
@@ -57,17 +57,17 @@ public class Solution {
 
     @Test
     public void test1() {
-        Solution solution = new Solution();
+        Find_Duplicate Find_Duplicate = new Find_Duplicate();
         int[] input = new int[]{1, 3, 4, 2, 2};
-        Assert.assertEquals(2, solution.findDuplicate1(input));
-        Assert.assertEquals(2, solution.findDuplicate2(input));
+        Assert.assertEquals(2, Find_Duplicate.findDuplicate1(input));
+        Assert.assertEquals(2, Find_Duplicate.findDuplicate2(input));
     }
 
     @Test
     public void test2() {
-        Solution solution = new Solution();
+        Find_Duplicate Find_Duplicate = new Find_Duplicate();
         int[] input = new int[]{3, 1, 3, 4, 2};
-        Assert.assertEquals(3, solution.findDuplicate1(input));
-        Assert.assertEquals(3, solution.findDuplicate2(input));
+        Assert.assertEquals(3, Find_Duplicate.findDuplicate1(input));
+        Assert.assertEquals(3, Find_Duplicate.findDuplicate2(input));
     }
 }
