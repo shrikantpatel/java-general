@@ -34,7 +34,7 @@ import org.junit.Test;
  1 <= nums.length <= 100
  0 <= nums[i] <= 100
  */
-public class Solution {
+public class Solution1 {
 
     public int[] nextPermutation(int[] nums) {
 
@@ -52,7 +52,7 @@ public class Solution {
 
     @Test
     public void test2() {
-        Assert.assertArrayEquals(new int[]{1,3,2}, (new Solution()).nextPermutation(new int[] {1,2,3}));
+        Assert.assertArrayEquals(new int[]{1,3,2}, (new Solution1()).nextPermutation(new int[] {1,2,3}));
     }
 }
 
