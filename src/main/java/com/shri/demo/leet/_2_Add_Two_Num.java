@@ -37,28 +37,39 @@ public class _2_Add_Two_Num {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
-        ListNode ans = null;
+        ListNode headOfResult = null;
 
+        // temp variables use for calculation
         int num1 = 0;
         int num2 = 0;
         int carryOver = 0;
-        int count = 0;
+
+        // temp pointer for result list l
         ListNode currentNode = null;
         ListNode previousNode = null;
 
+        // iterate through the list till you reach end of both the list
         while (l1 != null || l2 != null) {
 
+            // create a node that store the sum for current elements
             currentNode = new ListNode();
-            if (previousNode != null) {
+
+            // if previous node is null that means this indicates this head of result
+            if (previousNode == null) {
+                headOfResult = currentNode;
+            }
+            // set previous node next to current node.
+            else {
                 previousNode.next = currentNode;
-            } else {
-                ans = currentNode;
             }
 
+            // add the 2 numbers from list + the previous carryover
             num1 = l1 == null ? 0 : l1.val;
             num2 = l2 == null ? 0 : l2.val;
             int sum = num1 + num2 + carryOver;
 
+            // if sum of number > 9, set current node value to 1st digit
+            // carry over become 1
             if (sum > 9) {
                 carryOver = 1;
                 currentNode.val = sum % 10;
@@ -67,18 +78,21 @@ public class _2_Add_Two_Num {
                 currentNode.val = sum;
             }
 
+            // if neither l1 and l2 has reach the end, continue processing remaining list
             l1 = l1 == null ? null : l1.next;
             l2 = l2 == null ? null : l2.next;
+
             previousNode = currentNode;
         }
 
+        // if all elements from both list are added, and there is carryone remaining, then we need to add additional node.
         if (carryOver > 0 ) {
             currentNode = new ListNode();
             currentNode.val = carryOver;
             previousNode.next = currentNode;
         }
 
-        return ans;
+        return headOfResult;
 
     }
 }
