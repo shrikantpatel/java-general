@@ -56,18 +56,26 @@ public class _328_Odd_Even_Linked_List {
         while (current != null) {
 
             if (count % 2 == 0) {
+
+                // 1st even element so keep track of head for even link list
+                // we need odd tail to even head.
                 if (currentEven == null) {
                     currentEven = current;
                     headEven = current;
                 }
+                // if non 1st event element, made sure previous element point to current.
+                // then current get repointed to the new element.
                 else {
                     currentEven.next = current;
                     currentEven = currentEven.next;
                 }
             } else {
+                // 1st odd element set curent odd to this.
                 if (currentOdd == null) {
                     currentOdd = current;
                 }
+                // if non 1st odd element, made sure previous element point to current.
+                // then current get repointed to the new element.
                 else {
                     currentOdd.next = current;
                     currentOdd = currentOdd.next;
@@ -78,7 +86,11 @@ public class _328_Odd_Even_Linked_List {
             count++;
         }
         currentOdd.next = headEven;
+
+        // this require in case the last element is odd, last even element keep point at the odd element
+        // eg 1,2,3,4,5. for 4 we want to make sure set 4 next does not point to 5
         if (currentEven != null) currentEven.next = null;
+
         return head;
     }
     @Test
