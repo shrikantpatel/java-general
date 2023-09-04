@@ -38,7 +38,7 @@ import java.util.List;
  * 1 <= k <= 104
 
  */
-public class Add_ArrayForm_of_Integer {
+public class _989_Add_ArrayForm_of_Integer {
 
     public List<Integer> addToArrayForm(int[] num, int k) {
 
@@ -61,7 +61,7 @@ public class Add_ArrayForm_of_Integer {
 
     @Test
     public void test1() {
-        Add_ArrayForm_of_Integer sol = new Add_ArrayForm_of_Integer();
+        _989_Add_ArrayForm_of_Integer sol = new _989_Add_ArrayForm_of_Integer();
         int[] expected = {1, 2, 3, 4};
         List<Integer> actual = sol.addToArrayForm(new int[]{1, 2, 0, 0}, 34);
         Assert.assertArrayEquals(expected, actual.stream().mapToInt(i -> i).toArray());
@@ -69,7 +69,7 @@ public class Add_ArrayForm_of_Integer {
 
     @Test
     public void test2() {
-        Add_ArrayForm_of_Integer sol = new Add_ArrayForm_of_Integer();
+        _989_Add_ArrayForm_of_Integer sol = new _989_Add_ArrayForm_of_Integer();
         int[] expected = {4, 5, 5};
         List<Integer> actual = sol.addToArrayForm(new int[]{2, 7, 4}, 181);
         Assert.assertArrayEquals(expected, actual.stream().mapToInt(i -> i).toArray());
@@ -77,7 +77,7 @@ public class Add_ArrayForm_of_Integer {
 
     @Test
     public void test3() {
-        Add_ArrayForm_of_Integer sol = new Add_ArrayForm_of_Integer();
+        _989_Add_ArrayForm_of_Integer sol = new _989_Add_ArrayForm_of_Integer();
         int[] expected = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         List<Integer> actual = sol.addToArrayForm(new int[]{9, 9, 9, 9, 9, 9, 9, 9, 9, 9}, 1);
         Assert.assertArrayEquals(expected, actual.stream().mapToInt(i -> i).toArray());

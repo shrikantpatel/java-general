@@ -37,7 +37,7 @@ import java.util.Set;
  * 0 <= s.length <= 5 * 104
  * s consists of English letters, digits, symbols and spaces.
  */
-public class Longest_NonRepeating_Sub_String_Length {
+public class _3_Longest_NonRepeating_Sub_String_Length {
     public static int solution(String str) {
 
         /**
@@ -73,7 +73,7 @@ public class Longest_NonRepeating_Sub_String_Length {
                     i++;
                 }
                 // last loop stop at exactly when we encounter repeating character
-                // so we need increment start index by 1 to get to next character index.
+                // so we need to increment start index by 1 to get to next character index.
                 startIndex = i + 1;
             }
             endIndex++;
@@ -88,27 +88,27 @@ public class Longest_NonRepeating_Sub_String_Length {
 
     @Test
     public void test1() {
-        Assert.assertEquals(4, Longest_NonRepeating_Sub_String_Length.solution("nndNfdfdf"));
+        Assert.assertEquals(4, _3_Longest_NonRepeating_Sub_String_Length.solution("nndNfdfdf"));
     }
 
     @Test
     public void test2() {
-        Assert.assertEquals(3, Longest_NonRepeating_Sub_String_Length.solution("dvdf"));
+        Assert.assertEquals(3, _3_Longest_NonRepeating_Sub_String_Length.solution("dvdf"));
     }
 
     @Test
     public void test3() {
-        Assert.assertEquals(3, Longest_NonRepeating_Sub_String_Length.solution("abcabcbb"));
+        Assert.assertEquals(3, _3_Longest_NonRepeating_Sub_String_Length.solution("abcabcbb"));
     }
 
     @Test
     public void test4() {
-        Assert.assertEquals(1, Longest_NonRepeating_Sub_String_Length.solution("bbbbb"));
+        Assert.assertEquals(1, _3_Longest_NonRepeating_Sub_String_Length.solution("bbbbb"));
     }
 
     @Test
     public void test5() {
-        Assert.assertEquals(3, Longest_NonRepeating_Sub_String_Length.solution("pwwkew"));
+        Assert.assertEquals(3, _3_Longest_NonRepeating_Sub_String_Length.solution("pwwkew"));
     }
 
 }

@@ -20,7 +20,7 @@ import org.junit.Test;
  * Output: false
  * Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
  */
-public class Palindrome {
+public class _9_Palindrome {
 
     public boolean isPalindrome1(int x) {
         boolean isPalindome = true;
@@ -47,21 +47,21 @@ public class Palindrome {
 
     @Test
     public void test1() {
-        Palindrome palindrome = new Palindrome();
+        _9_Palindrome palindrome = new _9_Palindrome();
         Assert.assertEquals(Boolean.TRUE, palindrome.isPalindrome1(121));
         Assert.assertEquals(Boolean.TRUE, palindrome.isPalindrome2(121));
     }
 
     @Test
     public void test2() {
-        Palindrome palindrome = new Palindrome();
+        _9_Palindrome palindrome = new _9_Palindrome();
         Assert.assertEquals(Boolean.FALSE, palindrome.isPalindrome1(-121));
         Assert.assertEquals(Boolean.FALSE, palindrome.isPalindrome2(-121));
     }
 
     @Test
     public void test3() {
-        Palindrome palindrome = new Palindrome();
+        _9_Palindrome palindrome = new _9_Palindrome();
         Assert.assertEquals(Boolean.FALSE, palindrome.isPalindrome1(10));
         Assert.assertEquals(Boolean.FALSE, palindrome.isPalindrome2(10));
     }
