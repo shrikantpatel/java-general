@@ -40,8 +40,8 @@ public class _116_Populating_Next_Right_Pointers_in_Each_Node {
 
     public TreeNode connect(TreeNode root) {
 
-        Queue<TreeNode> currentLevel = new LinkedBlockingQueue<>();
-        Queue<TreeNode> nextLevel = new LinkedBlockingQueue<>();
+        Queue<TreeNode> currentLevel = new LinkedList<>();
+        Queue<TreeNode> nextLevel = new LinkedList<>();
 
         if (root == null) return null;
         currentLevel.add(root);
@@ -86,7 +86,7 @@ public class _116_Populating_Next_Right_Pointers_in_Each_Node {
 
     public TreeNode connect1(TreeNode root) {
 
-        Queue<TreeNode> currentLevel = new LinkedBlockingQueue<>();
+        Queue<TreeNode> currentLevel = new LinkedList<>();
 
         if (root == null) return null;
         currentLevel.add(root);
