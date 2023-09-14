@@ -84,11 +84,39 @@ public class _116_Populating_Next_Right_Pointers_in_Each_Node {
         return root;
     }
 
+    public TreeNode connect1(TreeNode root) {
+
+        Queue<TreeNode> currentLevel = new LinkedBlockingQueue<>();
+
+        if (root == null) return null;
+        currentLevel.add(root);
+        TreeNode previous = null;
+
+        while (!currentLevel.isEmpty()) {
+
+            int counter = currentLevel.size();
+            previous = currentLevel.remove();
+
+            for (int i = 0; i < counter; i++) {
+
+                if (previous.left != null) currentLevel.add(previous.left);
+                if (previous.right != null) currentLevel.add(previous.right);
+                if (i != counter-1) {
+                    previous.next = currentLevel.remove();
+                    previous = previous.next;
+                }
+            }
+
+        }
+        return root;
+    }
+
     @Test
     public void test1() {
         List<Integer> elements = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
         TreeNode rootNode = TreeNode.createTree(elements);
-        connect(rootNode);
+        //connect(rootNode);
+        connect1(rootNode);
         int i = 0;
     }
 
