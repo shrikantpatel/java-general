@@ -63,10 +63,7 @@ public class _200_Number_of_Islands {
         int totalRow = grid.length;
         int totalCol = grid[0].length;
 
-        if (startRow == totalRow) return;
-        if (startCol == totalCol) return;
-        if (startRow == -1) return;
-        if (startCol == -1) return;
+        if ((startRow == totalRow) || (startCol == totalCol) ||(startRow == -1) || (startCol == -1)) return;
 
         if (grid[startRow][startCol] == '1') {
             grid[startRow][startCol] = 'X';
