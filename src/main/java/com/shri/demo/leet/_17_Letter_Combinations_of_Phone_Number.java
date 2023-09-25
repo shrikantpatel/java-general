@@ -13,7 +13,7 @@ public class _17_Letter_Combinations_of_Phone_Number {
 
         List<String> ans = new ArrayList<>();
         String previousString = "";
-        int currentIndex = 0;
+        int currentIndex = 0 ;
 
         if (digits.length() > 0) buildPermutation(previousString, currentIndex, ans, digits);
 
