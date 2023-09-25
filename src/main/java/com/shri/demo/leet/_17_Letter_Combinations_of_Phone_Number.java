@@ -12,10 +12,10 @@ public class _17_Letter_Combinations_of_Phone_Number {
     public List<String> letterCombinations(String digits) {
 
         List<String> ans = new ArrayList<>();
-        String prefix = "";
+        String previousString = "";
         int currentIndex = 0;
 
-        if (digits.length() > 0) buildPermutation(prefix, currentIndex, ans, digits);
+        if (digits.length() > 0) buildPermutation(previousString, currentIndex, ans, digits);
 
         return ans;
     }
