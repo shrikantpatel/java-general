@@ -1,4 +1,4 @@
-package com.shri.demo.annotation;
+package com.shri.general.annotation;
 
 import java.lang.annotation.Annotation;
 
