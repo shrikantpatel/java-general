@@ -1,4 +1,4 @@
-package com.shri.demo;
+package com.shri.general;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -7,10 +7,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 public class Lombok_Test {

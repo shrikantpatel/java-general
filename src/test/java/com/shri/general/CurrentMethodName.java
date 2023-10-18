@@ -1,4 +1,4 @@
-package com.shri.demo;
+package com.shri.general;
 
 import org.junit.Assert;
 import org.junit.Test;

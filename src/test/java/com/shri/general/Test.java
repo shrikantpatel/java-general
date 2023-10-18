@@ -1,4 +1,4 @@
-package com.shri.demo;
+package com.shri.general;
 
 import java.time.LocalDate;
 
