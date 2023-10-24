@@ -1,11 +1,11 @@
 package com.shri.general;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 
 import java.util.Optional;
 
-import static org.junit.Assert.*;
+import static org.junit.*;
 
 public class Optional_Test {
 

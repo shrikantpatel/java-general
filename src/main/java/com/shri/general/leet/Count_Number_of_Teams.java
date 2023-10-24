@@ -1,7 +1,7 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 /**
  * 1395. Count Number of Teams
@@ -69,33 +69,33 @@ public class Count_Number_of_Teams {
     @Test
     public void testScenario1() {
         Count_Number_of_Teams s = new Count_Number_of_Teams();
-        Assert.assertEquals(3, s.numTeams(new int[]{2, 5, 3, 4, 1}));
+        assertEquals(3, s.numTeams(new int[]{2, 5, 3, 4, 1}));
         //(2,3,4), (5,4,1), (5,3,1)
     }
 
     @Test
     public void testScenario1a() {
         Count_Number_of_Teams s = new Count_Number_of_Teams();
-        Assert.assertEquals(9, s.numTeams(new int[]{2, 5, 3, 4, 1, 0}));
+        assertEquals(9, s.numTeams(new int[]{2, 5, 3, 4, 1, 0}));
         //(2,3,4) (5,3,1) (5,4,1) (5,3,0) (5,4,0) (5,1,0) (3,1,0) (4,1,0) (2,1,0)
     }
 
     @Test
     public void testScenario2() {
         Count_Number_of_Teams s = new Count_Number_of_Teams();
-        Assert.assertEquals(0, s.numTeams(new int[]{2, 1, 3}));
+        assertEquals(0, s.numTeams(new int[]{2, 1, 3}));
     }
 
     @Test
     public void testScenario3() {
         Count_Number_of_Teams s = new Count_Number_of_Teams();
-        Assert.assertEquals(1, s.numTeams(new int[]{1, 2, 3}));
+        assertEquals(1, s.numTeams(new int[]{1, 2, 3}));
     }
 
     @Test
     public void testScenario4() {
         Count_Number_of_Teams s = new Count_Number_of_Teams();
-        Assert.assertEquals(10, s.numTeams(new int[]{1, 2, 3, 4, 5}));
+        assertEquals(10, s.numTeams(new int[]{1, 2, 3, 4, 5}));
         // 1,2,3    1,2,4   1,3,4   1,2,5   1,3,5   1,4,5   2,3,4   2,3,5   2,4,5   3,4,5
     }
 

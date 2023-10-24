@@ -1,7 +1,10 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /**
  * 605. Can Place Flowers
@@ -54,30 +57,30 @@ public class Can_Place_Flowers {
     @Test
     public void testScenario1() {
         Can_Place_Flowers s = new Can_Place_Flowers();
-        Assert.assertTrue(s.canPlaceFlowers(new int[]{1, 0, 0, 0, 1}, 1));
+        assertTrue(s.canPlaceFlowers(new int[]{1, 0, 0, 0, 1}, 1));
     }
 
     @Test
     public void testScenario2() {
         Can_Place_Flowers s = new Can_Place_Flowers();
-        Assert.assertFalse(s.canPlaceFlowers(new int[]{1, 0, 0, 0, 1}, 2));
+        assertFalse(s.canPlaceFlowers(new int[]{1, 0, 0, 0, 1}, 2));
     }
 
     @Test
     public void testScenario3() {
         Can_Place_Flowers s = new Can_Place_Flowers();
-        Assert.assertFalse(s.canPlaceFlowers(new int[]{1, 0, 0, 0, 0, 1}, 2));
+        assertFalse(s.canPlaceFlowers(new int[]{1, 0, 0, 0, 0, 1}, 2));
     }
 
     @Test
     public void testScenario4() {
         Can_Place_Flowers s = new Can_Place_Flowers();
-        Assert.assertTrue(s.canPlaceFlowers(new int[]{1, 0, 0, 0, 1, 0, 0}, 2));
+        assertTrue(s.canPlaceFlowers(new int[]{1, 0, 0, 0, 1, 0, 0}, 2));
     }
 
     @Test
     public void testScenario5() {
         Can_Place_Flowers s = new Can_Place_Flowers();
-        Assert.assertTrue(s.canPlaceFlowers(new int[]{0}, 1));
+        assertTrue(s.canPlaceFlowers(new int[]{0}, 1));
     }
 }

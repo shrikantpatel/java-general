@@ -1,7 +1,9 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
+import org.junit.jupiter.api.Test;
 
 /*
 551. Student Attendance Record I
@@ -51,11 +53,11 @@ public class Student_Attendence_Record_Test {
 
     @Test
     public void testCase1() {
-        Assert.assertTrue(checkRecord("PPALLP"));
+        assertTrue(checkRecord("PPALLP"));
     }
 
     @Test
     public void testCase2() {
-        Assert.assertFalse(checkRecord("PPALLL"));
+        assertFalse(checkRecord("PPALLL"));
     }
 }

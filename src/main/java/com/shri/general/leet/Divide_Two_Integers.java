@@ -1,10 +1,10 @@
 package com.shri.general.leet;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /*
 29. Divide Two Integers
@@ -29,7 +29,6 @@ The divisor will never be 0.
 Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. For the purpose of this problem, assume that your function returns 231 − 1 when the division result overflows.
 */
 
-@RunWith(MockitoJUnitRunner.class)
 public class Divide_Two_Integers {
 
     public int divide_Approach1(int dividend, int divisor) {

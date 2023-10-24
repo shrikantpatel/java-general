@@ -1,9 +1,11 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /*
 665. Non-decreasing Array
@@ -54,24 +56,24 @@ public class Non_Decreasing_Array {
     @Test
     public void testScenario1() {
         Non_Decreasing_Array s = new Non_Decreasing_Array();
-        Assert.assertTrue(s.checkPossibility(new int[]{4, 2, 3}));
+        assertTrue(s.checkPossibility(new int[]{4, 2, 3}));
     }
 
     @Test
     public void testScenario2() {
         Non_Decreasing_Array s = new Non_Decreasing_Array();
-        Assert.assertFalse(s.checkPossibility(new int[]{4, 2, 1}));
+        assertFalse(s.checkPossibility(new int[]{4, 2, 1}));
     }
 
     @Test
     public void testScenario3() {
         Non_Decreasing_Array s = new Non_Decreasing_Array();
-        Assert.assertFalse(s.checkPossibility(new int[]{3, 4, 2, 3}));
+        assertFalse(s.checkPossibility(new int[]{3, 4, 2, 3}));
     }
 
     @Test
     public void testScenario4() {
         Non_Decreasing_Array s = new Non_Decreasing_Array();
-        Assert.assertTrue(s.checkPossibility(new int[]{1, 4, 3, 5}));
+        assertTrue(s.checkPossibility(new int[]{1, 4, 3, 5}));
     }
 }

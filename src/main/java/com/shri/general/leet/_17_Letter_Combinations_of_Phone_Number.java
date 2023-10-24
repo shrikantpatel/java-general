@@ -1,7 +1,7 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -68,12 +68,12 @@ public class _17_Letter_Combinations_of_Phone_Number {
     @Test
     public void test2() {
         _17_Letter_Combinations_of_Phone_Number test = new _17_Letter_Combinations_of_Phone_Number();
-        Assert.assertEquals(new ArrayList<>(), test.letterCombinations(""));
+        assertEquals(new ArrayList<>(), test.letterCombinations(""));
     }
 
     @Test
     public void test3() {
         _17_Letter_Combinations_of_Phone_Number test = new _17_Letter_Combinations_of_Phone_Number();
-        Assert.assertEquals(Arrays.asList("a", "b", "c"), test.letterCombinations("2"));
+        assertEquals(Arrays.asList("a", "b", "c"), test.letterCombinations("2"));
     }
 }

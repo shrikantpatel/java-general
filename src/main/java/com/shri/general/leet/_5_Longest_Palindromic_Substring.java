@@ -1,7 +1,7 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 /**
  * https://leetcode.com/problems/longest-palindromic-substring/
@@ -69,26 +69,26 @@ public class _5_Longest_Palindromic_Substring {
 
     @Test
     public void test1() {
-        Assert.assertEquals("bab", new _5_Longest_Palindromic_Substring().longestPalindrome("babad"));
+        assertEquals("bab", new _5_Longest_Palindromic_Substring().longestPalindrome("babad"));
     }
 
     @Test
     public void test2() {
-        Assert.assertEquals("bb", new _5_Longest_Palindromic_Substring().longestPalindrome("cbbd"));
+        assertEquals("bb", new _5_Longest_Palindromic_Substring().longestPalindrome("cbbd"));
     }
 
     @Test
     public void test3() {
-        Assert.assertEquals("bcb", new _5_Longest_Palindromic_Substring().longestPalindrome("abcabcbb"));
+        assertEquals("bcb", new _5_Longest_Palindromic_Substring().longestPalindrome("abcabcbb"));
     }
 
     @Test
     public void test4() {
-        Assert.assertEquals("a", new _5_Longest_Palindromic_Substring().longestPalindrome("a"));
+        assertEquals("a", new _5_Longest_Palindromic_Substring().longestPalindrome("a"));
     }
 
     @Test
     public void test5() {
-        Assert.assertEquals("bb", new _5_Longest_Palindromic_Substring().longestPalindrome("bb"));
+        assertEquals("bb", new _5_Longest_Palindromic_Substring().longestPalindrome("bb"));
     }
 }

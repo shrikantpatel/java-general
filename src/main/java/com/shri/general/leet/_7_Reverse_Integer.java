@@ -1,7 +1,7 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 /**
  * https://leetcode.com/problems/reverse-integer/
@@ -69,36 +69,36 @@ public class _7_Reverse_Integer {
     @Test
     public void test1() {
         _7_Reverse_Integer test = new _7_Reverse_Integer();
-        Assert.assertEquals(321,test.reverse1(123));
-        Assert.assertEquals(321, test.reverse2(123));
+        assertEquals(321,test.reverse1(123));
+        assertEquals(321, test.reverse2(123));
     }
 
     @Test
     public void test2() {
         _7_Reverse_Integer test = new _7_Reverse_Integer();
-        Assert.assertEquals(-321,test.reverse1(-123));
-        Assert.assertEquals(-321, test.reverse2(-123));
+        assertEquals(-321,test.reverse1(-123));
+        assertEquals(-321, test.reverse2(-123));
     }
 
     @Test
     public void test2_1() {
         _7_Reverse_Integer test = new _7_Reverse_Integer();
-        Assert.assertEquals(-321,test.reverse1(-123));
-        Assert.assertEquals(-4321, test.reverse2(-1234));
+        assertEquals(-321,test.reverse1(-123));
+        assertEquals(-4321, test.reverse2(-1234));
     }
 
     @Test
     public void test3() {
         _7_Reverse_Integer test = new _7_Reverse_Integer();
-        Assert.assertEquals(21,test.reverse1(120));
-        Assert.assertEquals(21, test.reverse2(120));
+        assertEquals(21,test.reverse1(120));
+        assertEquals(21, test.reverse2(120));
     }
 
     @Test
     public void test4() {
         _7_Reverse_Integer test = new _7_Reverse_Integer();
-        Assert.assertEquals(0,test.reverse1(1534236469));
-        Assert.assertEquals(0, test.reverse2(1534236469));
+        assertEquals(0,test.reverse1(1534236469));
+        assertEquals(0, test.reverse2(1534236469));
     }
 
 }

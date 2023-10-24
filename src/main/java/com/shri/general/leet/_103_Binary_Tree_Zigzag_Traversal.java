@@ -25,7 +25,7 @@ package com.shri.general.leet;
  * -100 <= Node.val <= 100
  */
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 

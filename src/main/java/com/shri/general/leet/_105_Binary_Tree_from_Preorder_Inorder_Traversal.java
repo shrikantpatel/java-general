@@ -1,6 +1,6 @@
 package com.shri.general.leet;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/

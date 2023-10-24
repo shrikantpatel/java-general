@@ -1,7 +1,8 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 /**
  31. Next Permutation
@@ -52,7 +53,7 @@ public class Solution1 {
 
     @Test
     public void test2() {
-        Assert.assertArrayEquals(new int[]{1,3,2}, (new Solution1()).nextPermutation(new int[] {1,2,3}));
+        assertArrayEquals(new int[]{1,3,2}, (new Solution1()).nextPermutation(new int[] {1,2,3}));
     }
 }
 

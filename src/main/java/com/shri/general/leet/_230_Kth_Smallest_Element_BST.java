@@ -1,7 +1,7 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -64,7 +64,7 @@ public class _230_Kth_Smallest_Element_BST {
         _230_Kth_Smallest_Element_BST test = new _230_Kth_Smallest_Element_BST();
         List<Integer> elements = Arrays.asList(3, 1, 4, -1, 2);
         TreeNode rootNode = TreeNode.createTree(elements);
-        Assert.assertEquals(1, test.kthSmallest(rootNode, 1));
+        assertEquals(1, test.kthSmallest(rootNode, 1));
     }
 
     @Test
@@ -72,7 +72,7 @@ public class _230_Kth_Smallest_Element_BST {
         _230_Kth_Smallest_Element_BST test = new _230_Kth_Smallest_Element_BST();
         List<Integer> elements = Arrays.asList(5, 3, 6, 2, 4, -1, -1, 1);
         TreeNode rootNode = TreeNode.createTree(elements);
-        Assert.assertEquals(3, test.kthSmallest(rootNode, 3));
+        assertEquals(3, test.kthSmallest(rootNode, 3));
     }
 
     @Test
@@ -80,6 +80,6 @@ public class _230_Kth_Smallest_Element_BST {
         _230_Kth_Smallest_Element_BST test = new _230_Kth_Smallest_Element_BST();
         List<Integer> elements = Arrays.asList(1, -1, 2);
         TreeNode rootNode = TreeNode.createTree(elements);
-        Assert.assertEquals(2, test.kthSmallest(rootNode, 2));
+        assertEquals(2, test.kthSmallest(rootNode, 2));
     }
 }

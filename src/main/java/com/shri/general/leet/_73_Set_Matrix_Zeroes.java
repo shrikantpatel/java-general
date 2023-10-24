@@ -1,10 +1,11 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 /**
  * https://leetcode.com/problems/set-matrix-zeroes/
@@ -153,7 +154,7 @@ public class _73_Set_Matrix_Zeroes {
         int[][] input2 = new int[][]{{0, 1, 2, 0}, {3, 4, 5, 2}, {1, 3, 1, 5}};
         t.setZeroes_Approach1(input1);
         t.setZeroes_Approach2(input2);
-        Assert.assertArrayEquals(input1, input2);
+        assertArrayEquals(input1, input2);
     }
 
     @Test
@@ -163,7 +164,7 @@ public class _73_Set_Matrix_Zeroes {
         int[][] input2 = new int[][]{{1, 1, 1}, {1, 0, 1}, {1, 1, 1}};
         t.setZeroes_Approach1(input1);
         t.setZeroes_Approach2(input2);
-        Assert.assertArrayEquals(input1, input2);
+        assertArrayEquals(input1, input2);
     }
 
     @Test
@@ -173,7 +174,7 @@ public class _73_Set_Matrix_Zeroes {
         int[][] input2 = new int[][]{{1, 2, 3, 4}, {5, 0, 7, 8}, {0, 10, 11, 12}, {13, 14, 15, 0}};
         t.setZeroes_Approach1(input1);
         t.setZeroes_Approach2(input2);
-        Assert.assertArrayEquals(input1, input2);
+        assertArrayEquals(input1, input2);
     }
 
     @Test
@@ -183,7 +184,7 @@ public class _73_Set_Matrix_Zeroes {
         int[][] input2 = new int[][]{{1}};
         t.setZeroes_Approach1(input1);
         t.setZeroes_Approach2(input2);
-        Assert.assertArrayEquals(input1, input2);
+        assertArrayEquals(input1, input2);
     }
 
     @Test
@@ -193,7 +194,7 @@ public class _73_Set_Matrix_Zeroes {
         int[][] input2 = new int[][]{{1}, {0}};
         t.setZeroes_Approach1(input1);
         t.setZeroes_Approach2(input2);
-        Assert.assertArrayEquals(input1, input2);
+        assertArrayEquals(input1, input2);
     }
 
     @Test
@@ -203,7 +204,7 @@ public class _73_Set_Matrix_Zeroes {
         int[][] input2 = new int[][]{{1, 0, 3}};
         t.setZeroes_Approach1(input1);
         t.setZeroes_Approach2(input2);
-        Assert.assertArrayEquals(input1, input2);
+        assertArrayEquals(input1, input2);
 
     }
 }

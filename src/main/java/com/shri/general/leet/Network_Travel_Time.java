@@ -1,9 +1,7 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,7 +31,6 @@ The length of times will be in the range [1, 6000].
 All edges times[i] = (u, v, w) will have 1 <= u, v <= N and 0 <= w <= 100.
 */
 
-@RunWith(MockitoJUnitRunner.class)
 public class Network_Travel_Time {
 
     HashMap<Integer, Integer> dist;
@@ -91,6 +88,6 @@ public class Network_Travel_Time {
         int[][] times = {{2, 1, 1}, {2, 3, 1}, {3, 4, 1}};
         int N = 4;
         int K = 2;
-        Assert.assertEquals(2, networkDelayTime(times, N, K));
+        assertEquals(2, networkDelayTime(times, N, K));
     }
 }

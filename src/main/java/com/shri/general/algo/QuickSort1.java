@@ -1,7 +1,7 @@
 package com.shri.general.algo;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import org.junit.jupiter.api.Test;
 
 
 public class QuickSort1 {
@@ -51,7 +51,7 @@ public class QuickSort1 {
             System.out.print(output[i] + ", ");
         }
         System.out.println();
-        Assert.assertArrayEquals((new int[]{2, 4, 6, 7, 10, 23}), output);
+        assertArrayEquals((new int[]{2, 4, 6, 7, 10, 23}), output);
     }
 
     @Test
@@ -63,7 +63,7 @@ public class QuickSort1 {
             System.out.print(output[i] + ", ");
         }
         System.out.println();
-        Assert.assertArrayEquals((new int[]{2, 4, 6, 7, 10, 23}), output);
+        assertArrayEquals((new int[]{2, 4, 6, 7, 10, 23}), output);
     }
 
     @Test
@@ -75,6 +75,6 @@ public class QuickSort1 {
             System.out.print(output[i] + ", ");
         }
         System.out.println();
-        Assert.assertArrayEquals((new int[]{2, 3, 5, 10, 50, 100, 101}), output);
+        assertArrayEquals((new int[]{2, 3, 5, 10, 50, 100, 101}), output);
     }
 }

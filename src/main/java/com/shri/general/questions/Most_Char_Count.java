@@ -1,7 +1,7 @@
 package com.shri.general.questions;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -42,21 +42,21 @@ public class Most_Char_Count {
     public void test1() {
         Most_Char_Count obj = new Most_Char_Count();
         System.out.print(obj.mostCharCount("google"));
-        Assert.assertEquals('g', obj.mostCharCount("google"));
+        assertEquals('g', obj.mostCharCount("google"));
     }
 
     @Test
     public void test2() {
         Most_Char_Count obj = new Most_Char_Count();
         System.out.print(obj.mostCharCount("gooogle"));
-        Assert.assertEquals('o', obj.mostCharCount("gooogle"));
+        assertEquals('o', obj.mostCharCount("gooogle"));
     }
 
     @Test
     public void test3() {
         Most_Char_Count obj = new Most_Char_Count();
         System.out.print(obj.mostCharCount("shrikant"));
-        Assert.assertEquals('s', obj.mostCharCount("shrikant"));
+        assertEquals('s', obj.mostCharCount("shrikant"));
     }
 
 }

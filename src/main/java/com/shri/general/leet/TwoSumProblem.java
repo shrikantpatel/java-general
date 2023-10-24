@@ -1,10 +1,11 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 /**
  * 1. Two Sum
@@ -87,36 +88,36 @@ public class TwoSumProblem {
     @Test
     public void test1() {
         TwoSumProblem sol = new TwoSumProblem();
-        Assert.assertArrayEquals(new int[]{0, 1}, sol.twoSum(new int[]{2, 7, 11, 15}, 9));
+        assertArrayEquals(new int[]{0, 1}, sol.twoSum(new int[]{2, 7, 11, 15}, 9));
     }
 
     @Test
     public void test2() {
         TwoSumProblem sol = new TwoSumProblem();
-        Assert.assertArrayEquals(new int[]{1, 2}, sol.twoSum(new int[]{3, 2, 4}, 6));
+        assertArrayEquals(new int[]{1, 2}, sol.twoSum(new int[]{3, 2, 4}, 6));
     }
 
     @Test
     public void test3() {
         TwoSumProblem sol = new TwoSumProblem();
-        Assert.assertArrayEquals(new int[]{0, 1}, sol.twoSum(new int[]{3, 3}, 6));
+        assertArrayEquals(new int[]{0, 1}, sol.twoSum(new int[]{3, 3}, 6));
     }
 
     @Test
     public void test4() {
         TwoSumProblem sol = new TwoSumProblem();
-        Assert.assertArrayEquals(new int[]{0, 3}, sol.twoSum(new int[]{2, 5, 11, 7}, 9));
+        assertArrayEquals(new int[]{0, 3}, sol.twoSum(new int[]{2, 5, 11, 7}, 9));
     }
 
     @Test
     public void test5() {
         TwoSumProblem sol = new TwoSumProblem();
-        Assert.assertArrayEquals(new int[]{0, 3}, sol.twoSum(new int[]{0, 4, 3, 0}, 0));
+        assertArrayEquals(new int[]{0, 3}, sol.twoSum(new int[]{0, 4, 3, 0}, 0));
     }
 
     @Test
     public void test6() {
         TwoSumProblem sol = new TwoSumProblem();
-        Assert.assertArrayEquals(new int[]{0, 2}, sol.twoSum(new int[]{-3,4,3,90}, 0));
+        assertArrayEquals(new int[]{0, 2}, sol.twoSum(new int[]{-3,4,3,90}, 0));
     }
 }

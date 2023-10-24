@@ -1,12 +1,13 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class Depth_First_Search {
 
@@ -83,8 +84,8 @@ public class Depth_First_Search {
         List<Integer> preOrderExpected = Arrays.asList(5, 4, 11, 7, 2, 8, 13, 4, 5, 1);
         List<Integer> inOrderExpected = Arrays.asList(7, 11, 2, 4, 5, 13, 8, 5, 4, 1);
 
-        Assert.assertArrayEquals(preOrderExpected.toArray(), preOrderActual.toArray());
-        Assert.assertArrayEquals(inOrderExpected.toArray(), inOrderActual.toArray());
+        assertArrayEquals(preOrderExpected.toArray(), preOrderActual.toArray());
+        assertArrayEquals(inOrderExpected.toArray(), inOrderActual.toArray());
     }
 
     @Test
@@ -98,8 +99,8 @@ public class Depth_First_Search {
         List<Integer> preOrderExpected = Arrays.asList(5, 4, 8);
         List<Integer> inOrderExpected = Arrays.asList(4, 5, 8);
 
-        Assert.assertArrayEquals(preOrderExpected.toArray(), preOrderActual.toArray());
-        Assert.assertArrayEquals(inOrderExpected.toArray(), inOrderActual.toArray());
+        assertArrayEquals(preOrderExpected.toArray(), preOrderActual.toArray());
+        assertArrayEquals(inOrderExpected.toArray(), inOrderActual.toArray());
     }
 
     @Test
@@ -113,8 +114,8 @@ public class Depth_First_Search {
         List<Integer> preOrderExpected = Arrays.asList(5, 4, 11, 8, 4);
         List<Integer> inOrderExpected = Arrays.asList(11, 4, 5, 8, 4);
 
-        Assert.assertArrayEquals(preOrderExpected.toArray(), preOrderActual.toArray());
-        Assert.assertArrayEquals(inOrderExpected.toArray(), inOrderActual.toArray());
+        assertArrayEquals(preOrderExpected.toArray(), preOrderActual.toArray());
+        assertArrayEquals(inOrderExpected.toArray(), inOrderActual.toArray());
     }
 
     @Test
@@ -128,8 +129,8 @@ public class Depth_First_Search {
         List<Integer> preOrderExpected = Arrays.asList(5, 4, 11, 8, 4);
         List<Integer> inOrderExpected = Arrays.asList(4, 11, 5, 4, 8);
 
-        Assert.assertArrayEquals(preOrderExpected.toArray(), preOrderActual.toArray());
-        Assert.assertArrayEquals(inOrderExpected.toArray(), inOrderActual.toArray());
+        assertArrayEquals(preOrderExpected.toArray(), preOrderActual.toArray());
+        assertArrayEquals(inOrderExpected.toArray(), inOrderActual.toArray());
     }
 
     @Test
@@ -143,7 +144,7 @@ public class Depth_First_Search {
         List<Integer> preOrderExpected = Arrays.asList(1, 2);
         List<Integer> inOrderExpected = Arrays.asList(2, 1);
 
-        Assert.assertArrayEquals(preOrderExpected.toArray(), preOrderActual.toArray());
-        Assert.assertArrayEquals(inOrderExpected.toArray(), inOrderActual.toArray());
+        assertArrayEquals(preOrderExpected.toArray(), preOrderActual.toArray());
+        assertArrayEquals(inOrderExpected.toArray(), inOrderActual.toArray());
     }
 }

@@ -1,12 +1,13 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 /**
  * https://leetcode.com/problems/path-sum-ii/
@@ -86,7 +87,7 @@ public class Path_Sum_II {
         TreeNode rootNode = TreeNode.createTree(elements);
         List<List<Integer>> output = pathSum(rootNode, 22);
         List<List<Integer>> exepected = Arrays.asList(Arrays.asList(5, 4, 11, 2), Arrays.asList(5, 8, 4, 5));
-        Assert.assertArrayEquals(exepected.toArray(), output.toArray());
+        assertArrayEquals(exepected.toArray(), output.toArray());
     }
 
     @Test
@@ -94,7 +95,7 @@ public class Path_Sum_II {
         List<Integer> elements = Arrays.asList(1, 2, 3);
         TreeNode rootNode = TreeNode.createTree(elements);
         List<List<Integer>> output = pathSum(rootNode, 5);
-        Assert.assertArrayEquals((new ArrayList()).toArray(), output.toArray());
+        assertArrayEquals((new ArrayList()).toArray(), output.toArray());
     }
 
     @Test
@@ -102,7 +103,7 @@ public class Path_Sum_II {
         List<Integer> elements = Arrays.asList(1, 2);
         TreeNode rootNode = TreeNode.createTree(elements);
         List<List<Integer>> output = pathSum(rootNode, 0);
-        Assert.assertArrayEquals((new ArrayList()).toArray(), output.toArray());
+        assertArrayEquals((new ArrayList()).toArray(), output.toArray());
     }
 
     @Test
@@ -111,7 +112,7 @@ public class Path_Sum_II {
         TreeNode rootNode = TreeNode.createTree(elements);
         List<List<Integer>> output = pathSum(rootNode, 3);
         List<List<Integer>> exepected = Arrays.asList(Arrays.asList(1, 2));
-        Assert.assertArrayEquals(exepected.toArray(), output.toArray());
+        assertArrayEquals(exepected.toArray(), output.toArray());
     }
 }
 

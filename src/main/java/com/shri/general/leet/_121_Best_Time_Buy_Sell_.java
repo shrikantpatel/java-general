@@ -1,7 +1,7 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 /**
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
@@ -66,11 +66,11 @@ public class _121_Best_Time_Buy_Sell_ {
         _121_Best_Time_Buy_Sell_ obj = new _121_Best_Time_Buy_Sell_();
         int result = obj.maxProfit_version1(new int[]{7, 1, 5, 3, 6, 4});
         System.out.println(result);
-        Assert.assertEquals(5, result);
+        assertEquals(5, result);
 
         result = obj.maxProfit_version2(new int[]{7, 1, 5, 3, 6, 4});
         System.out.println(result);
-        Assert.assertEquals(5, result);
+        assertEquals(5, result);
     }
 
     @Test
@@ -79,10 +79,10 @@ public class _121_Best_Time_Buy_Sell_ {
 
         int result = obj.maxProfit_version1(new int[]{7, 6, 4, 3, 1});
         System.out.println(result);
-        Assert.assertEquals(0, result);
+        assertEquals(0, result);
 
         result = obj.maxProfit_version2(new int[]{7, 6, 4, 3, 1});
         System.out.println(result);
-        Assert.assertEquals(0, result);
+        assertEquals(0, result);
     }
 }

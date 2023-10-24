@@ -1,14 +1,11 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 import java.util.concurrent.ArrayBlockingQueue;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class TreeNode {
     int val;
@@ -116,7 +113,7 @@ public class TreeNode {
         List<Integer> elements1 = Arrays.asList(5, 4, 8, 11, 13, 4, 7, 2, 5, 1);
         TreeNode rootNode = createTree(elements);
         List<Integer> treeAsList = convertTreeToArray(rootNode);
-        Assert.assertArrayEquals(elements1.toArray(), treeAsList.toArray());
+        assertArrayEquals(elements1.toArray(), treeAsList.toArray());
     }
 
     @Test
@@ -125,7 +122,7 @@ public class TreeNode {
         List<Integer> elements1 = elements;
         TreeNode rootNode = createTree(elements);
         List<Integer> treeAsList = convertTreeToArray(rootNode);
-        Assert.assertArrayEquals(elements1.toArray(), treeAsList.toArray());
+        assertArrayEquals(elements1.toArray(), treeAsList.toArray());
     }
 
     @Test
@@ -134,7 +131,7 @@ public class TreeNode {
         List<Integer> elements1 = Arrays.asList(5, 4, 8, 11, 4);
         TreeNode rootNode = createTree(elements);
         List<Integer> treeAsList = convertTreeToArray(rootNode);
-        Assert.assertArrayEquals(elements1.toArray(), treeAsList.toArray());
+        assertArrayEquals(elements1.toArray(), treeAsList.toArray());
     }
 
     @Test
@@ -143,7 +140,7 @@ public class TreeNode {
         List<Integer> elements1 = Arrays.asList(5, 4, 8, 11, 4);
         TreeNode rootNode = createTree(elements);
         List<Integer> treeAsList = convertTreeToArray(rootNode);
-        Assert.assertArrayEquals(elements1.toArray(), treeAsList.toArray());
+        assertArrayEquals(elements1.toArray(), treeAsList.toArray());
     }
 
     @Test
@@ -151,7 +148,7 @@ public class TreeNode {
         List<Integer> elements = Arrays.asList(1, 2);
         TreeNode rootNode = createTree(elements);
         List<Integer> treeAsList = convertTreeToArray(rootNode);
-        Assert.assertArrayEquals(elements.toArray(), treeAsList.toArray());
+        assertArrayEquals(elements.toArray(), treeAsList.toArray());
     }
 
 }

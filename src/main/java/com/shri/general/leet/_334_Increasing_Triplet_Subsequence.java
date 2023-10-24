@@ -1,7 +1,7 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 /**
  * https://leetcode.com/problems/increasing-triplet-subsequence/
@@ -55,27 +55,27 @@ public class _334_Increasing_Triplet_Subsequence {
 
     @Test
     public void test1() {
-        Assert.assertEquals(true, new _334_Increasing_Triplet_Subsequence().increasingTriplet(new int[]{1, 2, 3, 4, 5}));
+        assertEquals(true, new _334_Increasing_Triplet_Subsequence().increasingTriplet(new int[]{1, 2, 3, 4, 5}));
     }
 
     @Test
     public void test2() {
-        Assert.assertEquals(false, new _334_Increasing_Triplet_Subsequence().increasingTriplet(new int[]{5, 4, 3, 2, 1}));
+        assertEquals(false, new _334_Increasing_Triplet_Subsequence().increasingTriplet(new int[]{5, 4, 3, 2, 1}));
     }
 
     @Test
     public void test3() {
-        Assert.assertEquals(true, new _334_Increasing_Triplet_Subsequence().increasingTriplet(new int[]{2, 1, 5, 0, 4, 6}));
+        assertEquals(true, new _334_Increasing_Triplet_Subsequence().increasingTriplet(new int[]{2, 1, 5, 0, 4, 6}));
     }
 
     @Test
     public void test4() {
-        Assert.assertEquals(true, new _334_Increasing_Triplet_Subsequence().increasingTriplet(new int[]{2, 1, 5, 4, 6}));
+        assertEquals(true, new _334_Increasing_Triplet_Subsequence().increasingTriplet(new int[]{2, 1, 5, 4, 6}));
     }
 
     @Test
     public void test5() {
-        Assert.assertEquals(false, new _334_Increasing_Triplet_Subsequence().increasingTriplet(new int[]{1, 1, 1, 1, 1, 1}));
+        assertEquals(false, new _334_Increasing_Triplet_Subsequence().increasingTriplet(new int[]{1, 1, 1, 1, 1, 1}));
     }
 
 }

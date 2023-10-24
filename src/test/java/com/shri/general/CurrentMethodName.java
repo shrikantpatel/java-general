@@ -1,7 +1,7 @@
 package com.shri.general;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class CurrentMethodName {
 
@@ -14,13 +14,13 @@ public class CurrentMethodName {
                 .getEnclosingMethod()
                 .getName();
 
-        Assert.assertEquals("testNewObjectMethod", methodName);
+        assertEquals("testNewObjectMethod", methodName);
     }
 
     @Test
     public void testCurrentTheadStack() {
 
-        Assert.assertEquals("testCurrentTheadStack", getCurrentMethodName());
+        assertEquals("testCurrentTheadStack", getCurrentMethodName());
     }
 
     public static String getCurrentMethodName() {

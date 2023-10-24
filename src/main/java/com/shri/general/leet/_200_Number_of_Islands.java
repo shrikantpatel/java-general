@@ -1,7 +1,7 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 /*
 https://leetcode.com/problems/number-of-islands/
@@ -86,7 +86,7 @@ public class _200_Number_of_Islands {
                         {'1', '1', '0', '0', '0'},
                         {'0', '0', '0', '0', '0'}
                 };
-        Assert.assertEquals(1, test.numIslands(grid));
+        assertEquals(1, test.numIslands(grid));
     }
 
     @Test
@@ -99,7 +99,7 @@ public class _200_Number_of_Islands {
                         {'0', '0', '1', '0', '0'},
                         {'0', '0', '0', '1', '1'}
                 };
-        Assert.assertEquals(3, test.numIslands(grid));
+        assertEquals(3, test.numIslands(grid));
     }
 
     @Test
@@ -111,7 +111,7 @@ public class _200_Number_of_Islands {
                         {'0', '1', '0'},
                         {'1', '1', '1'}
                 };
-        Assert.assertEquals(1, test.numIslands(grid));
+        assertEquals(1, test.numIslands(grid));
     }
 
     @Test
@@ -123,7 +123,7 @@ public class _200_Number_of_Islands {
                         {'0', '0', '1', '1'},
                         {'1', '1', '1', '1'}
                 };
-        Assert.assertEquals(1, test.numIslands(grid));
+        assertEquals(1, test.numIslands(grid));
     }
 
 }

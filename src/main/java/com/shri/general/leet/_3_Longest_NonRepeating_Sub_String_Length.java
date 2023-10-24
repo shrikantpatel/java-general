@@ -1,7 +1,7 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -88,27 +88,27 @@ public class _3_Longest_NonRepeating_Sub_String_Length {
 
     @Test
     public void test1() {
-        Assert.assertEquals(4, _3_Longest_NonRepeating_Sub_String_Length.solution("nndNfdfdf"));
+        assertEquals(4, _3_Longest_NonRepeating_Sub_String_Length.solution("nndNfdfdf"));
     }
 
     @Test
     public void test2() {
-        Assert.assertEquals(3, _3_Longest_NonRepeating_Sub_String_Length.solution("dvdf"));
+        assertEquals(3, _3_Longest_NonRepeating_Sub_String_Length.solution("dvdf"));
     }
 
     @Test
     public void test3() {
-        Assert.assertEquals(3, _3_Longest_NonRepeating_Sub_String_Length.solution("abcabcbb"));
+        assertEquals(3, _3_Longest_NonRepeating_Sub_String_Length.solution("abcabcbb"));
     }
 
     @Test
     public void test4() {
-        Assert.assertEquals(1, _3_Longest_NonRepeating_Sub_String_Length.solution("bbbbb"));
+        assertEquals(1, _3_Longest_NonRepeating_Sub_String_Length.solution("bbbbb"));
     }
 
     @Test
     public void test5() {
-        Assert.assertEquals(3, _3_Longest_NonRepeating_Sub_String_Length.solution("pwwkew"));
+        assertEquals(3, _3_Longest_NonRepeating_Sub_String_Length.solution("pwwkew"));
     }
 
 }

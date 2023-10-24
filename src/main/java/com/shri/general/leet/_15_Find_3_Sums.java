@@ -1,7 +1,7 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -93,22 +93,22 @@ public class _15_Find_3_Sums {
 
     @Test
     public void test1() {
-        Assert.assertEquals(Arrays.asList(Arrays.asList(-1, -1, 2), Arrays.asList(-1, 0, 1)), threeSum(new int[]{-1, 0, 1, 2, -1, -4}));
+        assertEquals(Arrays.asList(Arrays.asList(-1, -1, 2), Arrays.asList(-1, 0, 1)), threeSum(new int[]{-1, 0, 1, 2, -1, -4}));
     }
 
     @Test
     public void test2() {
-        Assert.assertEquals(new ArrayList<>(), threeSum(new int[]{0, 1, 1}));
+        assertEquals(new ArrayList<>(), threeSum(new int[]{0, 1, 1}));
     }
 
     @Test
     public void test3() {
-        Assert.assertEquals(Arrays.asList(Arrays.asList(0, 0, 0)), threeSum(new int[]{0, 0, 0}));
+        assertEquals(Arrays.asList(Arrays.asList(0, 0, 0)), threeSum(new int[]{0, 0, 0}));
     }
 
     @Test
     public void test4() {
-        Assert.assertEquals(Arrays.asList(Arrays.asList(-2,0,2), Arrays.asList(-2,1,1)), threeSum(new int[]{-2,0,1,1,2}));
+        assertEquals(Arrays.asList(Arrays.asList(-2,0,2), Arrays.asList(-2,1,1)), threeSum(new int[]{-2,0,1,1,2}));
     }
 
 }

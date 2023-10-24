@@ -1,7 +1,7 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -75,7 +75,7 @@ public class _49_Group_Anagrams {
         _49_Group_Anagrams t = new _49_Group_Anagrams();
         String[] input = new java.lang.String[]{"eat", "tea", "tan", "ate", "nat", "bat"};
         List<List<String>> output = Arrays.asList(Arrays.asList("bat"), Arrays.asList("nat", "tan"), Arrays.asList("ate", "eat", "tea"));
-        Assert.assertEquals(output, t.groupAnagrams(input));
+        assertEquals(output, t.groupAnagrams(input));
     }
 
     @Test
@@ -83,7 +83,7 @@ public class _49_Group_Anagrams {
         _49_Group_Anagrams t = new _49_Group_Anagrams();
         String[] input = new java.lang.String[]{""};
         List<List<String>> output = Arrays.asList(Arrays.asList(""));
-        Assert.assertEquals(output, t.groupAnagrams(input));
+        assertEquals(output, t.groupAnagrams(input));
     }
 
     @Test
@@ -91,7 +91,7 @@ public class _49_Group_Anagrams {
         _49_Group_Anagrams t = new _49_Group_Anagrams();
         String[] input = new java.lang.String[]{"a"};
         List<List<String>> output = Arrays.asList(Arrays.asList("a"));
-        Assert.assertEquals(output, t.groupAnagrams(input));
+        assertEquals(output, t.groupAnagrams(input));
     }
 
 }

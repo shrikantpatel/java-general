@@ -1,10 +1,8 @@
 package com.shri.general.leet;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /*
 35. Search Insert Position
@@ -29,7 +27,6 @@ Example 4:
 Input: [1,3,5,6], 0
 Output: 0
  */
-@RunWith(MockitoJUnitRunner.class)
 public class Search_Insert_Position {
 
     public int searchInsert(int[] nums, int target) {

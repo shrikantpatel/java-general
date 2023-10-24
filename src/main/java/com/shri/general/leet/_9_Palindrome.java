@@ -1,7 +1,7 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 /**
  * https://leetcode.com/problems/palindrome-number/
@@ -48,21 +48,21 @@ public class _9_Palindrome {
     @Test
     public void test1() {
         _9_Palindrome palindrome = new _9_Palindrome();
-        Assert.assertEquals(Boolean.TRUE, palindrome.isPalindrome1(121));
-        Assert.assertEquals(Boolean.TRUE, palindrome.isPalindrome2(121));
+        assertEquals(Boolean.TRUE, palindrome.isPalindrome1(121));
+        assertEquals(Boolean.TRUE, palindrome.isPalindrome2(121));
     }
 
     @Test
     public void test2() {
         _9_Palindrome palindrome = new _9_Palindrome();
-        Assert.assertEquals(Boolean.FALSE, palindrome.isPalindrome1(-121));
-        Assert.assertEquals(Boolean.FALSE, palindrome.isPalindrome2(-121));
+        assertEquals(Boolean.FALSE, palindrome.isPalindrome1(-121));
+        assertEquals(Boolean.FALSE, palindrome.isPalindrome2(-121));
     }
 
     @Test
     public void test3() {
         _9_Palindrome palindrome = new _9_Palindrome();
-        Assert.assertEquals(Boolean.FALSE, palindrome.isPalindrome1(10));
-        Assert.assertEquals(Boolean.FALSE, palindrome.isPalindrome2(10));
+        assertEquals(Boolean.FALSE, palindrome.isPalindrome1(10));
+        assertEquals(Boolean.FALSE, palindrome.isPalindrome2(10));
     }
 }

@@ -28,7 +28,7 @@ package com.shri.general.leet;
  * -106 <= Node.val <= 106
  */
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Definition for singly-linked list.

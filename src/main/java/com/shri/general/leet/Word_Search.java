@@ -1,9 +1,9 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /*
 79. Word Search
@@ -26,7 +26,6 @@ Given a 2D board and a word, find if the word exists in the grid.
         Given word = "SEE", return true.
         Given word = "ABCB", return false.
 */
-@RunWith(MockitoJUnitRunner.class)
 public class Word_Search {
 
     public boolean exist(char[][] board, String word) {
@@ -88,48 +87,48 @@ public class Word_Search {
     public void testScenario0() {
         char[][] board = {{'A', 'B'}, {'C', 'D'}};
         String word = "AB";
-        Assert.assertTrue(exist(board, word));
+        assertTrue(exist(board, word));
     }
 
     @Test
     public void testScenario1() {
         char[][] board = {{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
         String word = "ABCCED";
-        Assert.assertTrue(exist(board, word));
+        assertTrue(exist(board, word));
     }
 
     @Test
     public void testScenario2() {
         char[][] board = {{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
         String word = "SEE";
-        Assert.assertTrue(exist(board, word));
+        assertTrue(exist(board, word));
     }
 
     @Test
     public void testScenario3() {
         char[][] board = {{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
         String word = "ABCB";
-        Assert.assertFalse(exist(board, word));
+        assertFalse(exist(board, word));
     }
 
     @Test
     public void testScenario4() {
         char[][] board = {{'C', 'A', 'A'}, {'A', 'A', 'A'}, {'B', 'C', 'D'}};
         String word = "AAB";
-        Assert.assertTrue(exist(board, word));
+        assertTrue(exist(board, word));
     }
 
     @Test
     public void testScenario5() {
         char[][] board = {{'a', 'a'}, {'a', 'a'}};
         String word = "aaa";
-        Assert.assertTrue(exist(board, word));
+        assertTrue(exist(board, word));
     }
 
     @Test
     public void testScenario6() {
         char[][] board = {{'a', 'a'}};
         String word = "aaa";
-        Assert.assertFalse(exist(board, word));
+        assertFalse(exist(board, word));
     }
 }

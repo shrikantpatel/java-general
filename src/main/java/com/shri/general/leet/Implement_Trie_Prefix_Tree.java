@@ -20,11 +20,13 @@ You may assume that all inputs are consist of lowercase letters a-z.
 All inputs are guaranteed to be non-empty strings.
  */
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Implement_Trie_Prefix_Tree {
 
@@ -92,11 +94,11 @@ public class Implement_Trie_Prefix_Tree {
 
         Implement_Trie_Prefix_Tree trie = new Implement_Trie_Prefix_Tree();
         trie.insert("apple");
-        Assert.assertTrue(trie.search("apple"));   // returns true
-        Assert.assertFalse(trie.search("app"));     // returns false
-        Assert.assertTrue(trie.startsWith("app")); // returns true
-        Assert.assertFalse(trie.startsWith("appt")); // returns true
+        assertTrue(trie.search("apple"));   // returns true
+        assertFalse(trie.search("app"));     // returns false
+        assertTrue(trie.startsWith("app")); // returns true
+        assertFalse(trie.startsWith("appt")); // returns true
         trie.insert("app");
-        Assert.assertTrue(trie.search("app"));     // returns true
+        assertTrue(trie.search("app"));     // returns true
     }
 }

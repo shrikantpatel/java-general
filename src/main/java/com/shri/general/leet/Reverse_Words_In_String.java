@@ -1,7 +1,7 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -105,28 +105,28 @@ public class Reverse_Words_In_String {
     @Test
     public void testScenario1() {
         Reverse_Words_In_String sol = new Reverse_Words_In_String();
-        Assert.assertEquals("blue is sky the", sol.reverseWords_Solution1("the sky is blue"));
-        Assert.assertEquals("blue is sky the", sol.reverseWords_Solution2("the sky is blue"));
+        assertEquals("blue is sky the", sol.reverseWords_Solution1("the sky is blue"));
+        assertEquals("blue is sky the", sol.reverseWords_Solution2("the sky is blue"));
     }
 
     @Test
     public void testScenario2() {
         Reverse_Words_In_String sol = new Reverse_Words_In_String();
-        Assert.assertEquals("world hello", sol.reverseWords_Solution1("  hello world  "));
-        Assert.assertEquals("world hello", sol.reverseWords_Solution2("  hello world  "));
+        assertEquals("world hello", sol.reverseWords_Solution1("  hello world  "));
+        assertEquals("world hello", sol.reverseWords_Solution2("  hello world  "));
     }
 
     @Test
     public void testScenario3() {
         Reverse_Words_In_String sol = new Reverse_Words_In_String();
-        Assert.assertEquals("example good a", sol.reverseWords_Solution1("a good   example"));
-        Assert.assertEquals("example good a", sol.reverseWords_Solution2("a good   example"));
+        assertEquals("example good a", sol.reverseWords_Solution1("a good   example"));
+        assertEquals("example good a", sol.reverseWords_Solution2("a good   example"));
     }
 
     @Test
     public void testScenario4() {
         Reverse_Words_In_String sol = new Reverse_Words_In_String();
-        Assert.assertEquals("S D N E I R F", sol.reverseWords_Solution1("F R  I   E    N     D      S      "));
-        Assert.assertEquals("S D N E I R F", sol.reverseWords_Solution2("F R  I   E    N     D      S      "));
+        assertEquals("S D N E I R F", sol.reverseWords_Solution1("F R  I   E    N     D      S      "));
+        assertEquals("S D N E I R F", sol.reverseWords_Solution2("F R  I   E    N     D      S      "));
     }
 }

@@ -1,7 +1,7 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,21 +54,21 @@ public class _22_Generate_Parentheses {
     public void test1() {
         _22_Generate_Parentheses test = new _22_Generate_Parentheses();
         List expected = Arrays.asList("((()))", "(()())", "(())()", "()(())", "()()()");
-        Assert.assertEquals(expected, test.generateParenthesis(3));
+        assertEquals(expected, test.generateParenthesis(3));
     }
 
     @Test
     public void test2() {
         _22_Generate_Parentheses test = new _22_Generate_Parentheses();
         List expected = Arrays.asList("(())", "()()");
-        Assert.assertEquals(expected, test.generateParenthesis(2));
+        assertEquals(expected, test.generateParenthesis(2));
     }
 
     @Test
     public void test3() {
         _22_Generate_Parentheses test = new _22_Generate_Parentheses();
         List expected = Arrays.asList("()");
-        Assert.assertEquals(expected, test.generateParenthesis(1));
+        assertEquals(expected, test.generateParenthesis(1));
     }
 
 }

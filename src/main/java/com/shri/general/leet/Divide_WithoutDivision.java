@@ -1,7 +1,7 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 /**
  * https://leetcode.com/problems/divide-two-integers/
@@ -53,27 +53,27 @@ public class Divide_WithoutDivision {
 
     @Test
     public void test1(){
-        Assert.assertEquals(3, (new Divide_WithoutDivision()).divide(10, 3));
+        assertEquals(3, (new Divide_WithoutDivision()).divide(10, 3));
     }
 
     @Test
     public void test2(){
-        Assert.assertEquals(2147483647, (new Divide_WithoutDivision()).divide(-2147483648, -1));
+        assertEquals(2147483647, (new Divide_WithoutDivision()).divide(-2147483648, -1));
     }
 
     @Test
     public void test3(){
-        Assert.assertEquals(-2147483648, (new Divide_WithoutDivision()).divide(-2147483648, 1));
+        assertEquals(-2147483648, (new Divide_WithoutDivision()).divide(-2147483648, 1));
     }
 
     @Test
     public void test4(){
-        Assert.assertEquals(-1073741824, (new Divide_WithoutDivision()).divide(-2147483648, 2));
+        assertEquals(-1073741824, (new Divide_WithoutDivision()).divide(-2147483648, 2));
     }
 
     @Test
     public void test5(){
-        Assert.assertEquals(-2147483647, (new Divide_WithoutDivision()).divide(2147483647, -1));
+        assertEquals(-2147483647, (new Divide_WithoutDivision()).divide(2147483647, -1));
     }
 
 }

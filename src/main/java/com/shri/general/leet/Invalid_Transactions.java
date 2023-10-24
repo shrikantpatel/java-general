@@ -1,7 +1,7 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -112,21 +112,21 @@ public class Invalid_Transactions {
     public void test1() {
         Invalid_Transactions invalidTxn = new Invalid_Transactions();
         List<String> result = invalidTxn.invalidTransactions(new String[]{"alice,20,800,mtv", "alice,50,1200,mtv"});
-        Assert.assertArrayEquals(new String[]{"alice,50,1200,mtv"}, result.toArray());
+        assertArrayEquals(new String[]{"alice,50,1200,mtv"}, result.toArray());
     }
 
     @Test
     public void test2() {
         Invalid_Transactions invalidTxn = new Invalid_Transactions();
         List<String> result = invalidTxn.invalidTransactions(new String[]{"alice,20,800,mtv", "bob,50,1200,mtv"});
-        Assert.assertArrayEquals(new String[]{"bob,50,1200,mtv"}, result.toArray());
+        assertArrayEquals(new String[]{"bob,50,1200,mtv"}, result.toArray());
     }
 
     @Test
     public void test3() {
         Invalid_Transactions invalidTxn = new Invalid_Transactions();
         List<String> result = invalidTxn.invalidTransactions(new String[]{"alice,20,800,mtv", "alice,50,100,beijing"});
-        Assert.assertArrayEquals(new String[]{"alice,50,100,beijing", "alice,20,800,mtv"}, result.toArray());
+        assertArrayEquals(new String[]{"alice,50,100,beijing", "alice,20,800,mtv"}, result.toArray());
     }
 
     @Test
@@ -138,7 +138,7 @@ public class Invalid_Transactions {
                 "alex,393,616,bangkok",
                 "bob,820,990,amsterdam",
                 "alex,596,1390,amsterdam"});
-        Assert.assertArrayEquals(new String[]{"bob,656,1366,bangkok", "alex,596,1390,amsterdam"}, result.toArray());
+        assertArrayEquals(new String[]{"bob,656,1366,bangkok", "alex,596,1390,amsterdam"}, result.toArray());
     }
 
     @Test
@@ -159,7 +159,7 @@ public class Invalid_Transactions {
                 "lee,432,520,dubai",
                 "lee,166,3,madrid"
         });
-        Assert.assertArrayEquals(new String[]{"alice,50,100,beijing", "alice,20,800,mtv"}, result.toArray());
+        assertArrayEquals(new String[]{"alice,50,100,beijing", "alice,20,800,mtv"}, result.toArray());
     }
 
 
@@ -268,7 +268,7 @@ public class Invalid_Transactions {
                 "maybe,668,572,mexico",
                 "bob,402,922,montreal"
         });
-        Assert.assertArrayEquals(new String[]{"alice,50,100,beijing", "alice,20,800,mtv"}, result.toArray());
+        assertArrayEquals(new String[]{"alice,50,100,beijing", "alice,20,800,mtv"}, result.toArray());
     }
 
 

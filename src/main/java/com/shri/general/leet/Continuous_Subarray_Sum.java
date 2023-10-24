@@ -1,7 +1,7 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -80,30 +80,30 @@ public class Continuous_Subarray_Sum {
     @Test
     public void test1() {
         Continuous_Subarray_Sum toTest = new Continuous_Subarray_Sum();
-        Assert.assertEquals(true, toTest.checkSubarraySum(new int[]{23, 2, 2, 4, 6, 7}, 6));
+        assertEquals(true, toTest.checkSubarraySum(new int[]{23, 2, 2, 4, 6, 7}, 6));
     }
 
     @Test
     public void test2() {
         Continuous_Subarray_Sum toTest = new Continuous_Subarray_Sum();
-        Assert.assertEquals(true, toTest.checkSubarraySum(new int[]{23, 2, 6, 4, 7}, 6));
+        assertEquals(true, toTest.checkSubarraySum(new int[]{23, 2, 6, 4, 7}, 6));
     }
 
     @Test
     public void test5() {
         Continuous_Subarray_Sum toTest = new Continuous_Subarray_Sum();
-        Assert.assertEquals(true, toTest.checkSubarraySum(new int[]{23, 2, 4, 6, 6}, 7));
+        assertEquals(true, toTest.checkSubarraySum(new int[]{23, 2, 4, 6, 6}, 7));
     }
 
     @Test
     public void test3() {
         Continuous_Subarray_Sum toTest = new Continuous_Subarray_Sum();
-        Assert.assertEquals(false, toTest.checkSubarraySum(new int[]{23, 2, 6, 4, 7}, 0));
+        assertEquals(false, toTest.checkSubarraySum(new int[]{23, 2, 6, 4, 7}, 0));
     }
 
     @Test
     public void test4() {
         Continuous_Subarray_Sum toTest = new Continuous_Subarray_Sum();
-        Assert.assertEquals(true, toTest.checkSubarraySum(new int[]{0, 0}, 0));
+        assertEquals(true, toTest.checkSubarraySum(new int[]{0, 0}, 0));
     }
 }

@@ -1,13 +1,11 @@
 package com.shri.general.leet;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /*
 227. Basic Calculator 1
@@ -30,7 +28,7 @@ import static org.junit.Assert.assertEquals;
         Input: " 3+5 / 2 "
         Output: 5
  */
-@RunWith(MockitoJUnitRunner.class)
+
 public class Basic_Calculator_1_Bhumi_Interview {
 
     public int calculate(String s) {

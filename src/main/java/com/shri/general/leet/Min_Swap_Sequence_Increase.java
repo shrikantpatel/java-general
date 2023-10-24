@@ -24,12 +24,9 @@ A, B are arrays with the same length, and that length will be in the range [1, 1
 A[i], B[i] are integer values in the range [0, 2000].
 */
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
-@RunWith(MockitoJUnitRunner.class)
 public class Min_Swap_Sequence_Increase {
 
     public int minSwap(int[] A, int[] B) {
@@ -65,7 +62,7 @@ public class Min_Swap_Sequence_Increase {
         Min_Swap_Sequence_Increase test = new Min_Swap_Sequence_Increase();
         int[] A = {1, 3, 5, 4};
         int[] B = {1, 2, 3, 7};
-        Assert.assertEquals(1, test.minSwap(A, B));
+        assertEquals(1, test.minSwap(A, B));
     }
 
     @Test
@@ -73,7 +70,7 @@ public class Min_Swap_Sequence_Increase {
         Min_Swap_Sequence_Increase test = new Min_Swap_Sequence_Increase();
         int[] A = {0, 4, 4, 5, 9};
         int[] B = {0, 1, 6, 8, 10};
-        Assert.assertEquals(1, test.minSwap(A, B));
+        assertEquals(1, test.minSwap(A, B));
     }
 
     @Test
@@ -81,7 +78,7 @@ public class Min_Swap_Sequence_Increase {
         Min_Swap_Sequence_Increase test = new Min_Swap_Sequence_Increase();
         int[] A = {3, 3, 8, 9, 10};
         int[] B = {1, 7, 4, 6, 8};
-        Assert.assertEquals(1, test.minSwap(A, B));
+        assertEquals(1, test.minSwap(A, B));
     }
 }
 

@@ -1,7 +1,7 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -59,15 +59,15 @@ public class Find_Duplicate {
     public void test1() {
         Find_Duplicate Find_Duplicate = new Find_Duplicate();
         int[] input = new int[]{1, 3, 4, 2, 2};
-        Assert.assertEquals(2, Find_Duplicate.findDuplicate1(input));
-        Assert.assertEquals(2, Find_Duplicate.findDuplicate2(input));
+        assertEquals(2, Find_Duplicate.findDuplicate1(input));
+        assertEquals(2, Find_Duplicate.findDuplicate2(input));
     }
 
     @Test
     public void test2() {
         Find_Duplicate Find_Duplicate = new Find_Duplicate();
         int[] input = new int[]{3, 1, 3, 4, 2};
-        Assert.assertEquals(3, Find_Duplicate.findDuplicate1(input));
-        Assert.assertEquals(3, Find_Duplicate.findDuplicate2(input));
+        assertEquals(3, Find_Duplicate.findDuplicate1(input));
+        assertEquals(3, Find_Duplicate.findDuplicate2(input));
     }
 }

@@ -1,7 +1,7 @@
 package com.shri.general.leet;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.Stack;
 import java.lang.StringBuilder;
@@ -48,26 +48,26 @@ public class Complete_Brackets {
 
     @Test
     public void test1() {
-        Assert.assertEquals("<>", Complete_Brackets.solution("<"));
+        assertEquals("<>", Complete_Brackets.solution("<"));
     }
 
     @Test
     public void test2() {
-        Assert.assertEquals("", Complete_Brackets.solution(""));
+        assertEquals("", Complete_Brackets.solution(""));
     }
 
     @Test
     public void test3() {
-        Assert.assertEquals("<<>>", Complete_Brackets.solution(">>"));
+        assertEquals("<<>>", Complete_Brackets.solution(">>"));
     }
 
     @Test
     public void test4() {
-        Assert.assertEquals("<<<><>>>", Complete_Brackets.solution("<<<><>"));
+        assertEquals("<<<><>>>", Complete_Brackets.solution("<<<><>"));
     }
 
     @Test
     public void test5() {
-        Assert.assertEquals("<><<><><<>>>", Complete_Brackets.solution("><<><><<"));
+        assertEquals("<><<><><<>>>", Complete_Brackets.solution("><<><><<"));
     }
 }
