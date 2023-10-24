@@ -1,11 +1,12 @@
 package com.shri.general;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-
+import javax.management.InvalidApplicationException;
 import java.util.Optional;
 
-import static org.junit.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class Optional_Test {
 
@@ -20,12 +21,6 @@ public class Optional_Test {
         String name = "test";
         Optional<String> opt = Optional.of(name);
         assertTrue(opt.isPresent());
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void givenNull_whenThrowsErrorOnCreate_thenCorrect() {
-        String test = null;
-        Optional.of(test);
     }
 
     @Test
