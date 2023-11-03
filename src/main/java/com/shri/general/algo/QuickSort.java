@@ -29,12 +29,9 @@ public class QuickSort {
         // array index for the element greater than pivot
         int i = begin-1;
 
-        // array index for the element smaller than pivot
-        int j = begin;
-
         int temp = 0;
 
-        for (j = begin; j < end; j++) {
+        for (int j = begin; j < end; j++) {
 
             if (array[j] < pivot) {
                 i++;
