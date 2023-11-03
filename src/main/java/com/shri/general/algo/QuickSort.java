@@ -1,7 +1,8 @@
 package com.shri.general.algo;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 
 public class QuickSort {
@@ -27,27 +28,27 @@ public class QuickSort {
         int pivot = array[end];
 
         // array index for the element greater than pivot
-        int i = begin-1;
+        int higherValueIndex = begin;
 
         int temp = 0;
 
         for (int j = begin; j < end; j++) {
 
             if (array[j] < pivot) {
-                i++;
 
                 // swap the smaller and greater element
                 temp = array[j];
-                array[j] = array[i];
-                array[i] = temp;
+                array[j] = array[higherValueIndex];
+                array[higherValueIndex] = temp;
+                higherValueIndex++;
             }
         }
 
         // swap the pivot with greater element
-        array[end] = array[i + 1];
-        array[i + 1] = pivot;
+        array[end] = array[higherValueIndex];
+        array[higherValueIndex] = pivot;
 
-        return i + 1;
+        return higherValueIndex;
     }
 
 
@@ -85,5 +86,17 @@ public class QuickSort {
         }
         System.out.println();
         assertArrayEquals((new int[]{2, 3, 5, 10, 50, 100, 101}), output);
+    }
+
+    @Test
+    public void test4() {
+        QuickSort toTest = new QuickSort();
+        int[] input = new int[]{2, 2, 1, 2, 1, 1, 1, 0, 0, 2, 1, 0, 2, 1, 2, 2, 1, 1, 1, 1, 1, 0, 2, 0, 2, 0, 2, 2, 1, 0, 2, 1, 0, 2, 1, 2, 0, 0, 0, 0, 2, 1, 1, 2, 0, 1, 2, 2, 0, 0, 2, 2, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 2, 2, 2, 1, 0, 0, 2, 1, 0, 1, 0, 2, 2, 1, 2, 1, 1, 2, 1, 1, 0, 0, 2, 1, 0, 0};
+        int[] output = toTest.sort(input, 0, input.length - 1);
+        for (int i = 0; i < output.length; i++) {
+            System.out.print(output[i] + ", ");
+        }
+        System.out.println();
+        assertArrayEquals((new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}), output);
     }
 }
