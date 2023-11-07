@@ -40,6 +40,7 @@ public class _347_Top_K_Frequent_Elements {
         // create frequency map where key is element in list and value is how many times it occurred in the list.
         for (int i : nums) {
             frequency.merge(i, 1, Integer::sum);
+            //frequency.put(i, frequency.getOrDefault(i, 0) + 1);
         }
 
         // get just the key from above map
