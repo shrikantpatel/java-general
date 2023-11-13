@@ -45,7 +45,7 @@ public class _347_Top_K_Frequent_Elements {
 
         // get just the key from above map
         List<Integer> values = new ArrayList<>(frequency.keySet());
-        // sort the list of key using the values in the map
+        // sort the list of key using the values (ie how often the element has occurred)  in the map
         values.sort((val1, val2) -> frequency.get(val2) - frequency.get(val1));
 
         int[] result = new int[k];
@@ -59,19 +59,16 @@ public class _347_Top_K_Frequent_Elements {
 
     @Test
     public void test1() {
-        _347_Top_K_Frequent_Elements t1 = new _347_Top_K_Frequent_Elements();
         Assertions.assertArrayEquals(new int[]{1, 2}, topKFrequent(new int[]{1,1,1,2,2,3}, 2));
     }
 
     @Test
     public void test2() {
-        _347_Top_K_Frequent_Elements t1 = new _347_Top_K_Frequent_Elements();
         Assertions.assertArrayEquals(new int[]{1, 3}, topKFrequent(new int[]{1,1,1,2,2,3,3,3}, 2));
     }
 
     @Test
     public void test3() {
-        _347_Top_K_Frequent_Elements t1 = new _347_Top_K_Frequent_Elements();
         Assertions.assertArrayEquals(new int[]{4, 1}, topKFrequent(new int[]{1,1,1,2,2,3,3,3,4,4,4,4,4}, 2));
     }
 }
