@@ -1,4 +1,4 @@
-package com.shri.general.leet;
+package com.shri.general.datastructure;
 
 /**
  * 707. Design Linked List
