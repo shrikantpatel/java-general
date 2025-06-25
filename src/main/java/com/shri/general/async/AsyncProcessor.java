@@ -1,13 +1,14 @@
 package com.shri.general.async;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Consumer;
+import java.util.concurrent.ExecutionException;
 
 public class AsyncProcessor {
 
-    // The async method that takes a callback (Consumer)
-    public void processAsync(Consumer<String> callback) {
-        CompletableFuture.supplyAsync(() -> {
+    // The async method that returns a CompletableFuture
+    public CompletableFuture<String> processAsync() {
+
+        return CompletableFuture.supplyAsync(() -> {
             // Simulate long-running task
             try {
                 Thread.sleep(2000);
@@ -15,24 +16,34 @@ public class AsyncProcessor {
                 return "Task Interrupted";
             }
             return "Task Completed Successfully!";
-        }).thenAccept(callback); // Call the handler when done
+        });
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
         AsyncProcessor processor = new AsyncProcessor();
 
-        // Define the callback handler
-        Consumer<String> callback = result -> {
-            System.out.println("Callback received: " + result);
-        };
+        // Start async processing and handle the result synchronously
+        CompletableFuture<String> futureResult = processor.processAsync();
+        System.out.println("Result from Aysnc Task 1 - " + futureResult.join());
 
-        // Start async processing
-        System.out.println("Starting async task...");
-        processor.processAsync(callback);
+        // Start another async processing task and handle the result synchronously
+        futureResult = processor.processAsync();
+        System.out.println("Result from Aysnc Task 2 - " + futureResult.get());
 
-        // Keep the main thread alive for demonstration
+        // Start another async processing task and handle the result asynchronously
+        processor.processAsync().thenAccept(result -> {
+            System.out.println("Result from Async Task 3 - " + result);
+        }).exceptionally(ex -> {
+            System.err.println("Error occurred: " + ex.getMessage());
+            return null;
+        });
+
+        // Keep the main thread alive to see the async result
         try {
-            Thread.sleep(3000); // Wait to ensure callback prints
-        } catch (InterruptedException ignored) {}
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            System.err.println("Main thread interrupted: " + e.getMessage());
+        }
+
     }
 }
