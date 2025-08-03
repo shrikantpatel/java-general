@@ -44,6 +44,11 @@ class _14_First_Missing_Positive {
     }
 
     @Test
+    public void test2_a() {
+        assertEquals(1, firstMissingPositive(new int[]{3, 4, -1, -1}));
+    }
+
+    @Test
     public void test3() {
         assertEquals(1, firstMissingPositive(new int[]{7,8,9,11,12}));
     }
