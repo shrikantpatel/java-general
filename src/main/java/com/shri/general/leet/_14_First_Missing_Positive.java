@@ -4,33 +4,53 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * https://leetcode.com/problems/first-missing-positive/
+ * <p>
+ * 41. First Missing Positive
+ * Hard
+ * Given an unsorted integer array nums, return the smallest missing positive integer.
+ * <p>
+ * You must implement an algorithm that runs in O(n) time and uses O(1) auxiliary space.
+ * <p>
+ * Example 1:
+ * Input: nums = [1,2,0]
+ * Output: 3
+ * Explanation: The numbers in the range [1,2] are present but 3 is missing.
+ * <p>
+ * Example 2:
+ * Input: nums = [3,4,-1,1]
+ * Output: 2
+ * Explanation: The numbers in the range [1,3] are present but 2 is missing.
+ * <p>
+ * Example 3:
+ * Input: nums = [7,8,9,11,12]
+ * Output: 1
+ * Explanation: The numbers in the range [1,7] are not present so 1 is the smallest missing positive integer.
+ */
 class _14_First_Missing_Positive {
 
     public int firstMissingPositive(int[] nums) {
 
         int totalElements = nums.length;
 
-        for (int pointer = 0; pointer < totalElements; pointer++) {
+        for (int counter = 0 ; counter < totalElements; counter++){
+            while (nums[counter] > 0 && nums[counter] < totalElements+1 && nums[counter] != nums[nums[counter] - 1]) {
 
-            // Ignore negative numbers and numbers greater than totalElements
-            while (nums[pointer] > 0 && nums[pointer] <= totalElements && nums[pointer] != nums[nums[pointer] - 1]) {
                 // Swap the elements to their correct positions
-                int temp = nums[nums[pointer] - 1];
-                nums[nums[pointer] - 1] = nums[pointer];
-                nums[pointer] = temp;
+                int temp = nums[counter];
+                nums[counter] = nums[temp - 1];
+                nums[temp - 1] = temp;
             }
         }
 
-        // After rearranging, find the first missing positive
-        for (int i = 0; i < totalElements; i++) {
-            // The first index where the value is not equal to index + 1 is the missing positive
-            if (nums[i] != i + 1) {
-                return i + 1;
+        // After rearranging, the first index where the value is not equal to index + 1 is the missing positive
+        for (int counter = 0; counter < totalElements; counter++) {
+            if (nums[counter] != counter + 1) {
+                return counter + 1;
             }
         }
-
-        return totalElements+1;
-
+        return totalElements + 1; // If all positions are filled correctly, return the next positive integer
     }
 
     @Test
