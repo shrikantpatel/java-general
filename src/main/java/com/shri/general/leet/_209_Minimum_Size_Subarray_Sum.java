@@ -33,23 +33,25 @@ public class _209_Minimum_Size_Subarray_Sum {
         int shortestSubArrayLength = 0;
         int currentWindowTotal = 0;
 
-        for (int currentNum : nums) {
+        for (int counter = 0 ; counter < nums.length; counter++) {
 
-            currentWindowTotal = +currentNum;
-            endIndex++;
 
-            if (currentWindowTotal >= target) {
-                int temp = endIndex - startIndex;
-                shortestSubArrayLength = Math.min(temp, shortestSubArrayLength);
-                currentWindowTotal = -nums[startIndex];
-                startIndex++;
+
+            while (currentWindowTotal < target && ) {
+                currentWindowTotal = currentWindowTotal + nums[endIndex];
+                endIndex++;
             }
+            if (currentWindowTotal >= target) {
+                int temp = endIndex - startIndex + 1;
+                shortestSubArrayLength = Math.max(shortestSubArrayLength, temp);
+                currentWindowTotal = currentWindowTotal - nums[startIndex];
+            }
+
 
         }
 
-        int temp = endIndex - startIndex;
+        int temp = endIndex - startIndex + 1;
         shortestSubArrayLength = Math.min(temp, shortestSubArrayLength);
-        currentWindowTotal = -nums[startIndex];
 
         return shortestSubArrayLength;
     }
