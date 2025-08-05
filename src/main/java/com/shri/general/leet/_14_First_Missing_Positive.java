@@ -6,9 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * https://leetcode.com/problems/first-missing-positive/
- * <p>
+ *
  * 41. First Missing Positive
- * Hard
+ *   
  * Given an unsorted integer array nums, return the smallest missing positive integer.
  * <p>
  * You must implement an algorithm that runs in O(n) time and uses O(1) auxiliary space.
@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Output: 1
  * Explanation: The numbers in the range [1,7] are not present so 1 is the smallest missing positive integer.
  */
-class _14_First_Missing_Positive {
+class _41_First_Missing_Positive {
 
     public int firstMissingPositive(int[] nums) {
 
