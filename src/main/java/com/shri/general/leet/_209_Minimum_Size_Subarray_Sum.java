@@ -28,30 +28,30 @@ public class _209_Minimum_Size_Subarray_Sum {
 
     public int minSubArrayLen(int target, int[] nums) {
 
-        int startIndex = 0;
-        int endIndex = 0;
-        int shortestSubArrayLength = 0;
-        int currentWindowTotal = 0;
+        // Handle edge cases: null array, empty array, or non-positive target
+        if (nums == null || nums.length == 0 || target <= 0) return 0;
 
-        for (int currentNum : nums) {
+        // Initialize pointers and variables for sliding window
+        int startIndex = 0, endIndex = 0, currentWindowTotal = 0;
+        int shortestSubArrayLength = Integer.MAX_VALUE;
 
-            currentWindowTotal = +currentNum;
-            endIndex++;
+        // Expand the window by moving endIndex
+        while (endIndex < nums.length) {
+            currentWindowTotal += nums[endIndex]; // Add current element to window sum
 
-            if (currentWindowTotal >= target) {
-                int temp = endIndex - startIndex;
-                shortestSubArrayLength = Math.min(temp, shortestSubArrayLength);
-                currentWindowTotal = -nums[startIndex];
-                startIndex++;
+            // Shrink the window from the left while the sum meets or exceeds target
+            while (currentWindowTotal >= target) {
+                // Update shortest length if current window is smaller
+                shortestSubArrayLength = Math.min(endIndex - startIndex + 1, shortestSubArrayLength);
+                currentWindowTotal -= nums[startIndex]; // Remove leftmost element from sum
+                startIndex++; // Move left pointer forward
             }
 
+            endIndex++; // Move right pointer forward
         }
 
-        int temp = endIndex - startIndex;
-        shortestSubArrayLength = Math.min(temp, shortestSubArrayLength);
-        currentWindowTotal = -nums[startIndex];
-
-        return shortestSubArrayLength;
+        // Return result: 0 if no valid subarray found, else shortest length
+        return shortestSubArrayLength == Integer.MAX_VALUE ? 0 : shortestSubArrayLength;
     }
 
     @Test
