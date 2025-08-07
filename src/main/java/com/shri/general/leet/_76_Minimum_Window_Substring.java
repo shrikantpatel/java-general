@@ -42,6 +42,7 @@ package com.shri.general.leet;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -53,45 +54,57 @@ public class _76_Minimum_Window_Substring {
 
         if (source == null || searchString == null) return "";
 
-        source = source.trim();
-        searchString = searchString.trim();
-
-        int sourceLength = source.length();
-        int searchStringLength = searchString.length();
+        int sourceLength = source.length(), searchStringLength = searchString.length();
         if (sourceLength == 0 || searchStringLength == 0 || searchStringLength > sourceLength) return "";
 
-        int rightPointer = 0;
-        int leftPointer = 0;
-        int windowLength = Integer.MAX_VALUE;
+        int leftPointer = 0, charFoundCount = 0, windowLength = Integer.MAX_VALUE;
+        String answer = "";
 
-        Set<Character> charSet = new HashSet<>();
-        searchString.chars().forEach(c -> charSet.add((char) c));
+        HashMap<Character, Integer> charNeeded = new HashMap<>();
+        for (char c : searchString.toCharArray()) {
+            charNeeded.put(c, charNeeded.getOrDefault(c, 0) + 1);
+        }
+        HashMap<Character, Integer> charInCurrentWindow = new HashMap<>();
 
-        while (rightPointer < sourceLength) {
+        for (int rightPointer = 0; rightPointer < sourceLength; rightPointer++) {
 
-            // When the character exists in the source, remove it from the set
-            charSet.remove(source.charAt(rightPointer));
+            char currentChar = source.charAt(rightPointer);
+            charInCurrentWindow.put(currentChar, charInCurrentWindow.getOrDefault(currentChar, 0) + 1);
 
-            // We found all the characters
-            while (charSet.isEmpty()) {
-
-                // calculate the current window length
-                windowLength = Math.min(windowLength, leftPointer - rightPointer + 1);
-
-                // add the 1st character back
-                charSet.add(source.charAt(rightPointer));
-
-                // move the start pointer my one
-                rightPointer++;
-
+            if (charNeeded.containsKey(currentChar) && charInCurrentWindow.get(currentChar) == charNeeded.get(currentChar)) {
+                charFoundCount++;
             }
 
-            rightPointer++;
+            while (charFoundCount == charNeeded.size()) {
+
+                // If the current window size is smaller than the previously found minimum,
+                // update the minimum window length and store the current window substring as the answer.
+                if (windowLength > (rightPointer - leftPointer + 1)) {
+                    windowLength = rightPointer - leftPointer + 1;
+                    answer = source.substring(leftPointer, rightPointer + 1);
+                }
+
+                char leftChar = source.charAt(leftPointer);
+                charInCurrentWindow.put(leftChar, charInCurrentWindow.get(leftChar) - 1);
+
+                // If the character at the left pointer is required and its count in the current window
+                // drops below the required count after moving the left pointer, decrement charFoundCount.
+                // This indicates that the window no longer contains all required instances of this character.
+                if (charNeeded.containsKey(leftChar) && charInCurrentWindow.get(leftChar) < charNeeded.get(leftChar)) {
+                    charFoundCount--;
+                }
+
+                leftPointer++;
+            }
         }
 
+        return answer;
+    }
 
-        return "";
-
+    @Test
+    void testDoubleA() {
+        _76_Minimum_Window_Substring obj = new _76_Minimum_Window_Substring();
+        assertEquals("aa", obj.minWindow("aa", "aa"));
     }
 
     @Test
