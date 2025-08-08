@@ -37,26 +37,33 @@ import org.junit.jupiter.api.Test;
 
 public class _75_Sort_Colors {
 
+    /**
+     * Sorts the input array so that all 0s come first, then 1s, then 2s.
+     * Uses the Dutch National Flag algorithm for in-place sorting in one pass.
+     *
+     * @param nums the array of integers containing only 0, 1, and 2
+     */
     public void sortColors(int[] nums) {
-
         if (nums == null || nums.length == 0) return;
 
         int low = 0, mid = 0, high = nums.length - 1;
 
+        // Traverse the array and sort the colors in-place
         while (mid <= high) {
-
             if (nums[mid] == 0) {
+                // Swap current element with the element at low pointer
                 swap(nums, low, mid);
                 low++;
                 mid++;
             } else if (nums[mid] == 1) {
+                // Move to the next element if it's 1
                 mid++;
             } else {
+                // Swap current element with the element at high pointer
                 swap(nums, mid, high);
                 high--;
             }
         }
-
     }
 
     private void swap(int[] nums, int i, int j) {
@@ -66,7 +73,7 @@ public class _75_Sort_Colors {
     }
 
     @Test
-    void sortsArray() {
+    void sortsArrayTest1() {
         int[] nums = {2, 1, 1, 0 , 0, 2};
         new _75_Sort_Colors().sortColors(nums);
         Assertions.assertArrayEquals(new int[]{0, 0, 1, 1, 2, 2}, nums);
