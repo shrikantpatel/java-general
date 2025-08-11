@@ -3,8 +3,6 @@ package com.shri.general.leet;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-
 /**
  * 242. Valid Anagram
  * <p>
@@ -31,16 +29,17 @@ public class _242_Valid_Anagram {
 
     public boolean isAnagram(String firstString, String secondString) {
 
-        HashMap <Character, Integer> firstCharsCount = new HashMap<>();
+        if (firstString.length() != secondString.length()) return false;
+        int[] counts = new int[26];
 
-        firstString.chars().forEach(c-> firstCharsCount.put((char) c, firstCharsCount.getOrDefault((char)c, 0)+1));
-
-        HashMap <Character, Integer> secondCharsCount = new HashMap<>();
-
-        secondString.chars().forEach(c-> secondCharsCount.put((char) c, secondCharsCount.getOrDefault((char)c, 0)+1));
-
-        return firstCharsCount.equals(secondCharsCount);
-
+        for (int i = 0; i < firstString.length(); i++) {
+            counts[firstString.charAt(i) - 'a']++;
+            counts[secondString.charAt(i) - 'a']--;
+        }
+        for (int count : counts) {
+            if (count != 0) return false;
+        }
+        return true;
     }
 
     @Test
