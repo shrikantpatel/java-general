@@ -51,7 +51,6 @@ public class _3_Longest_NonRepeating_Sub_String_Length {
         int startIndex = 0;
         int endIndex = 0;
 
-
         for (char c : input) {
 
             if (!uniqueChars.contains(c)) {
@@ -61,29 +60,24 @@ public class _3_Longest_NonRepeating_Sub_String_Length {
             else {
 
                 // check the current end and if its greater than maxlength, we have got new maxlength.
-                int tempLength = endIndex - startIndex;
-                maxLength = tempLength > maxLength ? tempLength : maxLength;
+                maxLength = Math.max(endIndex - startIndex, maxLength);
 
                 // slide the window, start from start index, continue to move right till hit the repeating character
                 // as you moving through remove all element that you encounter on the way from set,
                 // since they need to discarded from subsequent unique char check
-                int i = startIndex;
-                while (str.charAt(i) != c) {
-                    uniqueChars.remove(str.charAt(i));
-                    i++;
+                while (str.charAt(startIndex) != c) {
+                    uniqueChars.remove(str.charAt(startIndex));
+                    startIndex++;
                 }
                 // last loop stop at exactly when we encounter repeating character
                 // so we need to increment start index by 1 to get to next character index.
-                startIndex = i + 1;
+                startIndex++;
             }
             endIndex++;
         }
-
-        int tempLength = endIndex - startIndex;
-        maxLength = tempLength > maxLength ? tempLength : maxLength;
+        maxLength = Math.max(endIndex - startIndex, maxLength);
 
         return maxLength;
-
     }
 
     @Test
