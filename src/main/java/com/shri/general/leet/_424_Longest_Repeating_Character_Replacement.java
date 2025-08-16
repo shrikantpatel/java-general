@@ -34,38 +34,44 @@ import org.junit.jupiter.api.Test;
  */
 public class _424_Longest_Repeating_Character_Replacement {
 
+
     public int characterReplacement(String s, int k) {
+        // Array to store frequency of each uppercase letter in the current window
+        int[] count = new int[26];
 
-        int length = s.length();
+        // maxCount keeps track of the count of the most frequent character in the window
+        int maxCount = 0;
 
-        // zero length or negative k means no replacement can be done
-        if (length == 0 || k < 0) return 0;
+        // maxLength stores the length of the longest valid window found
+        int maxLength = 0;
 
-        int start = 0, end = 0, replacmentCounter = 0, maxLength = 0;
+        // Left pointer of the sliding window
+        int left = 0;
 
-        for (start = 0; start < length; start++) {
+        // Iterate through the string with the right pointer
+        for (int right = 0; right < s.length(); right++) {
 
-            for (end = start; end < length; end++) {
-                // if the characters are same, continue
-                if (s.charAt(start) == s.charAt(end)) continue;
+            // Increment the count of the current character
+            count[s.charAt(right) - 'A']++;
 
-                // if the characters are different, increment the replacement counter
-                replacmentCounter++;
+            // Update maxCount to reflect the most frequent character in the window
+            maxCount = Math.max(maxCount, count[s.charAt(right) - 'A']);
 
-                // if the replacement counter exceeds k, break the loop
-                if (replacmentCounter > k) {
-                    break;
-                }
+            // If the number of characters to replace exceeds k, shrink the window from the left
+            while (right - left + 1 - maxCount > k) {
+                // Decrease the count of the character going out of the window
+                count[s.charAt(left) - 'A']--;
+                left++; // Move the left pointer forward
             }
 
-            // calculate the max length of the substring
-            maxLength = Math.max(maxLength, end - start);
-
+            // Update maxLength with the size of the current valid window
+            maxLength = Math.max(maxLength, right - left + 1);
         }
 
+        // Return the length of the longest valid substring
         return maxLength;
-
     }
+
 
     @Test
     void testCase1() {
@@ -95,5 +101,17 @@ public class _424_Longest_Repeating_Character_Replacement {
     void testCase5() {
         _424_Longest_Repeating_Character_Replacement solution = new _424_Longest_Repeating_Character_Replacement();
         Assertions.assertEquals(9, solution.characterReplacement("AABABBAAABBB", 3));
+    }
+
+    @Test
+    void testCase7() {
+        _424_Longest_Repeating_Character_Replacement solution = new _424_Longest_Repeating_Character_Replacement();
+        Assertions.assertEquals(5, solution.characterReplacement("ABDDD", 2));
+    }
+
+    @Test
+    void testCase6() {
+        _424_Longest_Repeating_Character_Replacement solution = new _424_Longest_Repeating_Character_Replacement();
+        Assertions.assertEquals(4, solution.characterReplacement("ABBB", 2));
     }
 }
