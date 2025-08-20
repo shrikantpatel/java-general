@@ -64,10 +64,8 @@ public class _49_Group_Anagrams {
         }
 
         // convert the map to list and use size of the list to order final array
-        List<List<String>> returnList = new ArrayList<List<String>>(map.values()).stream().
-                                            sorted(Comparator.comparingInt(List::size)).collect(Collectors.toList());
+        return map.values().stream().sorted(Comparator.comparingInt(List::size)).collect(Collectors.toList());
 
-        return returnList;
     }
 
     @Test
