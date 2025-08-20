@@ -38,34 +38,24 @@ public class _49_Group_Anagrams {
 
     public List<List<String>> groupAnagrams(String[] inputArray) {
 
-        Map<String, List<String>> map = new ConcurrentHashMap<>();
+        Map<String, List<String>> anagramGroups = new HashMap<>();
 
         // iterate through the string to character array. and sort character with in array.
         // use the sorted array as key in map
         // use sorted char array to find if key exist and add new value to map.
         // if sorted char array does not exist add new key.
-        for (String input : inputArray) {
-            char[] charArr = input.toCharArray();
+        for (String word : inputArray) {
+            char[] charArr = word.toCharArray();
             Arrays.sort(charArr);
             String key = new String(charArr);
 
-            if (map.containsKey(key)) {
-                map.get(key).add(input);
-            } else {
-                List<String> temp = new ArrayList<>();
-                temp.add(input);
-                map.put(key, temp);
-            }
+            anagramGroups.computeIfAbsent(key, k -> new ArrayList<>()).add(word);
+            anagramGroups.get(key).sort(String::compareTo);
         }
 
-        // order the strings \ value part of the map using natural order
-        for (String key : map.keySet()) {
-            map.get(key).sort(Comparator.naturalOrder());
-        }
-
-        // convert the map to list and use size of the list to order final array
-        return map.values().stream().sorted(Comparator.comparingInt(List::size)).collect(Collectors.toList());
-
+        return anagramGroups.values().stream()
+                .sorted(Comparator.comparingInt(List::size))
+                .collect(Collectors.toList());
     }
 
     @Test
