@@ -40,7 +40,7 @@ public class _121_Best_Time_Buy_Sell_ {
 
             for (int j = i; j < prices.length; j++) {
                 int temp = prices[j] - prices[i];
-                result = temp > result ? temp : result;
+                result = Math.max(result, temp);
             }
         }
         return result;
@@ -49,12 +49,15 @@ public class _121_Best_Time_Buy_Sell_ {
 
     public int maxProfit_version2(int[] prices) {
 
+        int minPrice = Integer.MAX_VALUE;
         int maxProfit = 0;
-        int lowestPrice = 0;
 
         for (int price : prices) {
-            lowestPrice = Math.min(lowestPrice, price);
-            maxProfit = Math.max(maxProfit, price-lowestPrice);
+            if (price < minPrice) {
+                minPrice = price;
+            } else {
+                maxProfit = Math.max(maxProfit, price - minPrice);
+            }
         }
         return maxProfit;
 
@@ -84,5 +87,31 @@ public class _121_Best_Time_Buy_Sell_ {
         result = obj.maxProfit_version2(new int[]{7, 6, 4, 3, 1});
         System.out.println(result);
         assertEquals(0, result);
+    }
+
+    @Test
+    public void test3() {
+        _121_Best_Time_Buy_Sell_ obj = new _121_Best_Time_Buy_Sell_();
+
+        int result = obj.maxProfit_version1(new int[]{1,4,2});
+        System.out.println(result);
+        assertEquals(3, result);
+
+        result = obj.maxProfit_version2(new int[]{1,4,2});
+        System.out.println(result);
+        assertEquals(3, result);
+    }
+
+    @Test
+    public void test4() {
+        _121_Best_Time_Buy_Sell_ obj = new _121_Best_Time_Buy_Sell_();
+
+        int result = obj.maxProfit_version1(new int[]{3,2,6,5,0,3});
+        System.out.println(result);
+        assertEquals(4, result);
+
+        result = obj.maxProfit_version2(new int[]{3,2,6,5,0,3});
+        System.out.println(result);
+        assertEquals(4, result);
     }
 }
