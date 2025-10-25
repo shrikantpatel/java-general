@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * https://leetcode.com/problems/binary-search/
+ */
 public class _704_Binary_Search {
 
     public int search(int[] nums, int target) {
