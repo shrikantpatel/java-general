@@ -11,9 +11,6 @@ public class _733_Flood_Fill {
 
     public int[][] floodFill(int[][] image, int sr, int sc, int color) {
 
-        if (image == null || image.length == 0) return image;
-        if (sr < 0 || sr >= image.length || sc < 0 || sc >= image[0].length) return image;
-        if (image[sr][sc] == color) return image;
         return floodFill(image, sr, sc, color, image[sr][sc]);
 
     }
