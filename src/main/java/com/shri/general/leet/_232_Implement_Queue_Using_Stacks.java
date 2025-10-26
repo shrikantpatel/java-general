@@ -10,7 +10,6 @@ public class _232_Implement_Queue_Using_Stacks {
 
     Stack<Integer> inStack = null;
     Stack<Integer> outStack = null;
-    int activeStack = 1;
 
     public _232_Implement_Queue_Using_Stacks() {
         inStack = new Stack<>();
