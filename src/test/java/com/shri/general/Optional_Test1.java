@@ -8,7 +8,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class Optional_Test {
+public class Optional_Test1 {
 
     @Test
     public void whenCreatesEmptyOptional_thenCorrect() {

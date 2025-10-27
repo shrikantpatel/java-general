@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class Lambda_Test {
+public class Lambda_Test1 {
 
     @Test
     public void testBasic() {

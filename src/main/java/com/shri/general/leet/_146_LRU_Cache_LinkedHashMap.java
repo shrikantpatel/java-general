@@ -75,7 +75,7 @@ public class _146_LRU_Cache_LinkedHashMap extends LinkedHashMap<Integer, Integer
     }
 }
 
-class _146_LRU_Cache_LinkedHashMapTest {
+class _146_LRU_Cache_LinkedHashMapTest1 {
 
     @Test
     public void testBasicPutAndGet() {

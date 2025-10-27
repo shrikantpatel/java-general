@@ -127,7 +127,7 @@ public class _146_LRU_Cache_DoublyLinkedList {
 
 }
 
-class _146_LRU_Cache_DoublyLinkedListTest {
+class _146_LRU_Cache_DoublyLinkedListTest1 {
 
     @Test
     public void testBasicPutAndGet() {

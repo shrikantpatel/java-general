@@ -4,9 +4,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class Test {
+public class Test1 {
 
     public static void main(String[] args) {
+
+        System.out.println('A'-'a');
 
         Map<String, Integer> map = Map.of("A", 1, "B", 2, "C", 3);
 

@@ -23,7 +23,7 @@ Example 2:
 Input: "PPALLL"
 Output: False
  */
-public class Student_Attendence_Record_Test {
+public class Student_Attendence_Record_Test1 {
 
     public boolean checkRecord(String s) {
 
