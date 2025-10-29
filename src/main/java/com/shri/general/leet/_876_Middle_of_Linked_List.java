@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+/**
+ * https://leetcode.com/problems/middle-of-the-linked-list/description/
+ */
 public class _876_Middle_of_Linked_List {
 
     public ListNode middleNode(ListNode head) {
