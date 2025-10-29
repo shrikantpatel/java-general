@@ -8,7 +8,14 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 public class _876_Middle_of_Linked_List {
 
     public ListNode middleNode(ListNode head) {
-        return null;
+
+        ListNode pointer_1x = head, pointer_2x = head;
+
+        while (pointer_1x != null && pointer_2x != null) {
+            pointer_1x = pointer_1x.next;
+            pointer_2x = pointer_2x.next.;
+        }
+
     }
 
     private ListNode buildList(int... vals) {
