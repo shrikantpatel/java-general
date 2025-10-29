@@ -9,12 +9,22 @@ public class _876_Middle_of_Linked_List {
 
     public ListNode middleNode(ListNode head) {
 
+        // Initialize two pointers: one moves 1 step at a time (slow), the other 2 steps at a time (fast)
         ListNode pointer_1x = head, pointer_2x = head;
 
-        while (pointer_1x != null && pointer_2x != null) {
+        // Edge case: if the list is empty or has only one node, return it as the middle
+        if (pointer_1x == null || pointer_1x.next == null) return pointer_1x;
+
+        // Traverse the list:
+        // - pointer_2x moves twice as fast as pointer_1x
+        // - when pointer_2x reaches the end, pointer_1x will be at the middle
+        while (pointer_1x != null && pointer_2x != null && pointer_2x.next != null) {
             pointer_1x = pointer_1x.next;
-            pointer_2x = pointer_2x.next.;
+            pointer_2x = pointer_2x.next.next;
         }
+
+        // Return the middle node
+        return pointer_1x;
 
     }
 
