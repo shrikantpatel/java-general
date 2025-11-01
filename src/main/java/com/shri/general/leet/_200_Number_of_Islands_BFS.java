@@ -1,7 +1,8 @@
 package com.shri.general.leet;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /*
 https://leetcode.com/problems/number-of-islands/
@@ -36,49 +37,23 @@ n == grid[i].length
 1 <= m, n <= 300
 grid[i][j] is '0' or '1'.
 */
-public class _200_Number_of_Islands {
+public class _200_Number_of_Islands_BFS {
 
     public int numIslands(char[][] grid) {
 
-        int totalRow = grid.length;
-        int totalCol = grid[0].length;
-        int noOfIsland = 0;
+        for (int row = 0 ; row < grid.length ; row++) {
 
-        for (int row = 0; row < totalRow; row++) {
+            for (int col = 0 ; col < grid[0].length ; col++) {
 
-            for (int col = 0; col < totalCol; col++) {
-
-                if (grid[row][col] == '1') {
-                    noOfIsland++;
-                    markAllAdjacentLand(row, col, grid);
-                }
+                if (grid[row][col] == 1)
             }
-        }
 
-        return noOfIsland;
-    }
-
-    private void markAllAdjacentLand(int startRow, int startCol, char[][] grid) {
-
-        int totalRow = grid.length;
-        int totalCol = grid[0].length;
-
-        if ((startRow == totalRow) || (startCol == totalCol) ||(startRow == -1) || (startCol == -1)) return;
-
-        if (grid[startRow][startCol] == '1') {
-            grid[startRow][startCol] = 'X';
-            markAllAdjacentLand(startRow, startCol + 1, grid);
-            markAllAdjacentLand(startRow + 1, startCol, grid);
-            markAllAdjacentLand(startRow, startCol -1, grid);
-            markAllAdjacentLand(startRow - 1, startCol, grid);
-        } else {
-            return;
         }
     }
 
     @Test
     public void test1() {
-        _200_Number_of_Islands test = new _200_Number_of_Islands();
+        _200_Number_of_Islands_BFS test = new _200_Number_of_Islands_BFS();
         char[][] grid = new char[][]
                 {
                         {'1', '1', '1', '1', '0'},
@@ -91,7 +66,7 @@ public class _200_Number_of_Islands {
 
     @Test
     public void test2() {
-        _200_Number_of_Islands test = new _200_Number_of_Islands();
+        _200_Number_of_Islands_BFS test = new _200_Number_of_Islands_BFS();
         char[][] grid = new char[][]
                 {
                         {'1', '1', '0', '0', '0'},
@@ -104,7 +79,7 @@ public class _200_Number_of_Islands {
 
     @Test
     public void test3() {
-        _200_Number_of_Islands test = new _200_Number_of_Islands();
+        _200_Number_of_Islands_BFS test = new _200_Number_of_Islands_BFS();
         char[][] grid = new char[][]
                 {
                         {'1', '1', '1'},
@@ -116,7 +91,7 @@ public class _200_Number_of_Islands {
 
     @Test
     public void test4() {
-        _200_Number_of_Islands test = new _200_Number_of_Islands();
+        _200_Number_of_Islands_BFS test = new _200_Number_of_Islands_BFS();
         char[][] grid = new char[][]
                 {
                         {'1', '1', '1', '1'},
