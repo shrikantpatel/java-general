@@ -30,7 +30,8 @@ public class _62_Unique_Paths {
         // dp[i][j] = dp[i-1][j] (from above) + dp[i][j-1] (from left)
         for (int row = 1; row < m; row++) {
             for (int col = 1; col < n; col++) {
-                dp[row][col] = dp[row - 1][col] + dp[row][col - 1];
+                dp[row][col] = dp[row - 1][col] // one cessll from above
+                        + dp[row][col - 1]; // one cell from left
             }
         }
 
