@@ -3,7 +3,9 @@ package com.shri.general.leet;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -38,8 +40,28 @@ import java.util.Set;
  * s consists of English letters, digits, symbols and spaces.
  */
 public class _3_Longest_NonRepeating_Sub_String_Length {
-    public static int solution(String str) {
 
+    public static int solution_2ndAttempt(String str) {
+
+        Map<Character, Integer> charAndIndexMap = new HashMap<>();
+        int left = 0;
+        int max = 0;
+
+        for (int right = 0 ; right < str.length() ; right++ ) {
+
+            char currentChar = str.charAt(right);
+            if (charAndIndexMap.containsKey(currentChar)) {
+                left = Math.max(left, charAndIndexMap.get(currentChar)+1);
+            }
+            max = Math.max(max, right-left+1);
+            charAndIndexMap.put(currentChar, right);
+
+        }
+
+        return max;
+    }
+
+    public static int solution_1stAttempt(String str) {
         /**
          * Use the sliding window
          */
@@ -82,27 +104,51 @@ public class _3_Longest_NonRepeating_Sub_String_Length {
 
     @Test
     public void test1() {
-        assertEquals(4, _3_Longest_NonRepeating_Sub_String_Length.solution("nndNfdfdf"));
+        assertEquals(4, _3_Longest_NonRepeating_Sub_String_Length.solution_1stAttempt("nndNfdfdf"));
     }
 
     @Test
     public void test2() {
-        assertEquals(3, _3_Longest_NonRepeating_Sub_String_Length.solution("dvdf"));
+        assertEquals(3, _3_Longest_NonRepeating_Sub_String_Length.solution_1stAttempt("dvdf"));
     }
 
     @Test
     public void test3() {
-        assertEquals(3, _3_Longest_NonRepeating_Sub_String_Length.solution("abcabcbb"));
+        assertEquals(3, _3_Longest_NonRepeating_Sub_String_Length.solution_1stAttempt("abcabcbb"));
     }
 
     @Test
     public void test4() {
-        assertEquals(1, _3_Longest_NonRepeating_Sub_String_Length.solution("bbbbb"));
+        assertEquals(1, _3_Longest_NonRepeating_Sub_String_Length.solution_1stAttempt("bbbbb"));
     }
 
     @Test
     public void test5() {
-        assertEquals(3, _3_Longest_NonRepeating_Sub_String_Length.solution("pwwkew"));
+        assertEquals(3, _3_Longest_NonRepeating_Sub_String_Length.solution_1stAttempt("pwwkew"));
     }
 
+    @Test
+    public void test1_2ndAttempt() {
+        assertEquals(4, _3_Longest_NonRepeating_Sub_String_Length.solution_2ndAttempt("nndNfdfdf"));
+    }
+
+    @Test
+    public void test2_2ndAttempt() {
+        assertEquals(3, _3_Longest_NonRepeating_Sub_String_Length.solution_2ndAttempt("dvdf"));
+    }
+
+    @Test
+    public void test3_2ndAttempt() {
+        assertEquals(3, _3_Longest_NonRepeating_Sub_String_Length.solution_2ndAttempt("abcabcbb"));
+    }
+
+    @Test
+    public void test4_2ndAttempt() {
+        assertEquals(1, _3_Longest_NonRepeating_Sub_String_Length.solution_2ndAttempt("bbbbb"));
+    }
+
+    @Test
+    public void test5_2ndAttempt() {
+        assertEquals(3, _3_Longest_NonRepeating_Sub_String_Length.solution_2ndAttempt("pwwkew"));
+    }
 }
