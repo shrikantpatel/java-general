@@ -43,7 +43,7 @@ public class _75_Sort_Colors {
      *
      * @param nums the array of integers containing only 0, 1, and 2
      */
-    public void sortColors(int[] nums) {
+    public void sortColors1(int[] nums) {
         if (nums == null || nums.length == 0) return;
 
         int low = 0, mid = 0, high = nums.length - 1;
@@ -72,74 +72,159 @@ public class _75_Sort_Colors {
         nums[j] = temp;
     }
 
+    public void sortColors2(int[] nums) {
+        int count0 = 0, count1 = 0, count2 = 0;
+
+        for (int num : nums) {
+            if (num == 0) count0++;
+            else if (num == 1) count1++;
+            else count2++;
+        }
+
+        int i = 0;
+        while (count0-- > 0) nums[i++] = 0;
+        while (count1-- > 0) nums[i++] = 1;
+        while (count2-- > 0) nums[i++] = 2;
+    }
+
     @Test
     void sortsArrayTest1() {
         int[] nums = {2, 1, 1, 0 , 0, 2};
-        new _75_Sort_Colors().sortColors(nums);
+        new _75_Sort_Colors().sortColors1(nums);
         Assertions.assertArrayEquals(new int[]{0, 0, 1, 1, 2, 2}, nums);
     }
 
     @Test
     void sortsArrayWithAllColorsMixed() {
         int[] nums = {2, 0, 2, 1, 1, 0};
-        new _75_Sort_Colors().sortColors(nums);
+        new _75_Sort_Colors().sortColors1(nums);
         Assertions.assertArrayEquals(new int[]{0, 0, 1, 1, 2, 2}, nums);
     }
 
     @Test
     void sortsArrayWithNoTwos() {
         int[] nums = {1, 0, 1, 0, 1};
-        new _75_Sort_Colors().sortColors(nums);
+        new _75_Sort_Colors().sortColors1(nums);
         Assertions.assertArrayEquals(new int[]{0, 0, 1, 1, 1}, nums);
     }
 
     @Test
     void sortsArrayWithNoZeros() {
         int[] nums = {2, 1, 2, 1, 2};
-        new _75_Sort_Colors().sortColors(nums);
+        new _75_Sort_Colors().sortColors1(nums);
         Assertions.assertArrayEquals(new int[]{1, 1, 2, 2, 2}, nums);
     }
 
     @Test
     void sortsArrayWithNoOnes() {
         int[] nums = {2, 0, 2, 0, 2};
-        new _75_Sort_Colors().sortColors(nums);
+        new _75_Sort_Colors().sortColors1(nums);
         Assertions.assertArrayEquals(new int[]{0, 0, 2, 2, 2}, nums);
     }
 
     @Test
     void sortsArrayWithAllSameColor() {
         int[] nums = {1, 1, 1, 1};
-        new _75_Sort_Colors().sortColors(nums);
+        new _75_Sort_Colors().sortColors1(nums);
         Assertions.assertArrayEquals(new int[]{1, 1, 1, 1}, nums);
     }
 
     @Test
     void sortsArrayWithSingleElement() {
         int[] nums = {0};
-        new _75_Sort_Colors().sortColors(nums);
+        new _75_Sort_Colors().sortColors1(nums);
         Assertions.assertArrayEquals(new int[]{0}, nums);
     }
 
     @Test
     void sortsArrayWithTwoElements() {
         int[] nums = {2, 0};
-        new _75_Sort_Colors().sortColors(nums);
+        new _75_Sort_Colors().sortColors1(nums);
         Assertions.assertArrayEquals(new int[]{0, 2}, nums);
     }
 
     @Test
     void sortsAlreadySortedArray() {
         int[] nums = {0, 0, 1, 1, 2, 2};
-        new _75_Sort_Colors().sortColors(nums);
+        new _75_Sort_Colors().sortColors1(nums);
         Assertions.assertArrayEquals(new int[]{0, 0, 1, 1, 2, 2}, nums);
     }
 
     @Test
     void sortsArrayWithAlternatingColors() {
         int[] nums = {0, 2, 1, 0, 2, 1};
-        new _75_Sort_Colors().sortColors(nums);
+        new _75_Sort_Colors().sortColors1(nums);
         Assertions.assertArrayEquals(new int[]{0, 0, 1, 1, 2, 2}, nums);
     }
+    @Test
+    void sortColors2_sortsArrayTest1() {
+        int[] nums = {2, 1, 1, 0 , 0, 2};
+        new _75_Sort_Colors().sortColors2(nums);
+        Assertions.assertArrayEquals(new int[]{0, 0, 1, 1, 2, 2}, nums);
+    }
+
+    @Test
+    void sortColors2_sortsArrayWithAllColorsMixed() {
+        int[] nums = {2, 0, 2, 1, 1, 0};
+        new _75_Sort_Colors().sortColors2(nums);
+        Assertions.assertArrayEquals(new int[]{0, 0, 1, 1, 2, 2}, nums);
+    }
+
+    @Test
+    void sortColors2_sortsArrayWithNoTwos() {
+        int[] nums = {1, 0, 1, 0, 1};
+        new _75_Sort_Colors().sortColors2(nums);
+        Assertions.assertArrayEquals(new int[]{0, 0, 1, 1, 1}, nums);
+    }
+
+    @Test
+    void sortColors2_sortsArrayWithNoZeros() {
+        int[] nums = {2, 1, 2, 1, 2};
+        new _75_Sort_Colors().sortColors2(nums);
+        Assertions.assertArrayEquals(new int[]{1, 1, 2, 2, 2}, nums);
+    }
+
+    @Test
+    void sortColors2_sortsArrayWithNoOnes() {
+        int[] nums = {2, 0, 2, 0, 2};
+        new _75_Sort_Colors().sortColors2(nums);
+        Assertions.assertArrayEquals(new int[]{0, 0, 2, 2, 2}, nums);
+    }
+
+    @Test
+    void sortColors2_sortsArrayWithAllSameColor() {
+        int[] nums = {1, 1, 1, 1};
+        new _75_Sort_Colors().sortColors2(nums);
+        Assertions.assertArrayEquals(new int[]{1, 1, 1, 1}, nums);
+    }
+
+    @Test
+    void sortColors2_sortsArrayWithSingleElement() {
+        int[] nums = {0};
+        new _75_Sort_Colors().sortColors2(nums);
+        Assertions.assertArrayEquals(new int[]{0}, nums);
+    }
+
+    @Test
+    void sortColors2_sortsArrayWithTwoElements() {
+        int[] nums = {2, 0};
+        new _75_Sort_Colors().sortColors2(nums);
+        Assertions.assertArrayEquals(new int[]{0, 2}, nums);
+    }
+
+    @Test
+    void sortColors2_sortsAlreadySortedArray() {
+        int[] nums = {0, 0, 1, 1, 2, 2};
+        new _75_Sort_Colors().sortColors2(nums);
+        Assertions.assertArrayEquals(new int[]{0, 0, 1, 1, 2, 2}, nums);
+    }
+
+    @Test
+    void sortColors2_sortsArrayWithAlternatingColors() {
+        int[] nums = {0, 2, 1, 0, 2, 1};
+        new _75_Sort_Colors().sortColors2(nums);
+        Assertions.assertArrayEquals(new int[]{0, 0, 1, 1, 2, 2}, nums);
+    }
+
 
 }
