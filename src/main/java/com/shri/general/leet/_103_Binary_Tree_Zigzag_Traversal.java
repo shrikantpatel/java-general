@@ -29,6 +29,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -46,7 +48,7 @@ import java.util.*;
  */
 public class _103_Binary_Tree_Zigzag_Traversal {
 
-    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+    public List<List<Integer>> zigzagLevelOrder1(TreeNode root) {
 
         if (root == null) return new ArrayList<>();
 
@@ -93,12 +95,132 @@ public class _103_Binary_Tree_Zigzag_Traversal {
         }
     }
 
-    @Test
-    public void test1() {
-        List<Integer> elements = Arrays.asList(5, 4, 8, 11, -1, 13, 4, 7, 2, -1, -1, 5, 1);
-        TreeNode rootNode = TreeNode.createTree(elements);
-        zigzagLevelOrder(rootNode);
+    public List<List<Integer>> zigzagLevelOrder2(TreeNode root) {
+
+        // Initialize the result list to hold values level by level
+        List<List<Integer>> results = new ArrayList<>();
+
+        // Edge case: if the tree is empty, return an empty list
+        if (root == null) return results;
+
+        // Use a queue to perform BFS traversal
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root); // Start with the root node
+
+        boolean leftToRight = true;
+
+        // Continue until all levels are processed
+        while (!queue.isEmpty()) {
+            // Determine the number of nodes at the current level
+            int levelSize = queue.size();
+
+            // List to hold node values for this level
+            List<Integer> nodeAtLevel = new LinkedList<>();
+
+            // Process each node at the current level
+            for (int i = 0; i < levelSize; i++) {
+                // Remove the node from the front of the queue
+                TreeNode node = queue.poll();
+
+                // Add its value to the current level list
+                if (leftToRight) {
+                    nodeAtLevel.addLast(node.val);
+                } else {
+                    nodeAtLevel.addFirst(node.val);
+                }
+
+                // Add left and right children to the queue for the next level
+                if (node.left != null) queue.add(node.left);
+                if (node.right != null) queue.add(node.right);
+            }
+
+            // Add the current level's values to the final result
+            results.add(nodeAtLevel);
+            leftToRight = !leftToRight;
+        }
+
+        // Return the list of levels
+        return results;
 
     }
+
+    @Test
+    public void testSingleNode() {
+        TreeNode root = new TreeNode(1);
+        List<List<Integer>> expected = Arrays.asList(Arrays.asList(1));
+        assertEquals(expected, zigzagLevelOrder1(root));
+        assertEquals(expected, zigzagLevelOrder2(root));
+    }
+
+    @Test
+    public void testEmptyTree() {
+        TreeNode root = null;
+        List<List<Integer>> expected = new ArrayList<>();
+        assertEquals(expected, zigzagLevelOrder1(root));
+        assertEquals(expected, zigzagLevelOrder2(root));
+    }
+
+    @Test
+    public void testTwoLevels() {
+        TreeNode root = new TreeNode(1, new TreeNode(2), new TreeNode(3));
+        List<List<Integer>> expected = Arrays.asList(
+                Arrays.asList(1),
+                Arrays.asList(3, 2)
+        );
+        assertEquals(expected, zigzagLevelOrder1(root));
+        assertEquals(expected, zigzagLevelOrder2(root));
+    }
+
+    @Test
+    public void testThreeLevelsBalanced() {
+        TreeNode root = new TreeNode(1,
+                new TreeNode(2, new TreeNode(4), new TreeNode(5)),
+                new TreeNode(3, new TreeNode(6), new TreeNode(7))
+        );
+        List<List<Integer>> expected = Arrays.asList(
+                Arrays.asList(1),
+                Arrays.asList(3, 2),
+                Arrays.asList(4, 5, 6, 7)
+        );
+        assertEquals(expected, zigzagLevelOrder1(root));
+        assertEquals(expected, zigzagLevelOrder2(root));
+    }
+
+    @Test
+    public void testLeftSkewedTree() {
+        TreeNode root = new TreeNode(1,
+                new TreeNode(2,
+                        new TreeNode(3,
+                                new TreeNode(4), null), null), null);
+        List<List<Integer>> expected = Arrays.asList(
+                Arrays.asList(1),
+                Arrays.asList(2),
+                Arrays.asList(3),
+                Arrays.asList(4)
+        );
+        assertEquals(expected, zigzagLevelOrder1(root));
+        assertEquals(expected, zigzagLevelOrder2(root));
+    }
+
+    @Test
+    public void testRightSkewedTree() {
+        TreeNode root = new TreeNode(1,
+                null,
+                new TreeNode(2,
+                        null,
+                        new TreeNode(3,
+                                null,
+                                new TreeNode(4)))
+        );
+        List<List<Integer>> expected = Arrays.asList(
+                Arrays.asList(1),
+                Arrays.asList(2),
+                Arrays.asList(3),
+                Arrays.asList(4)
+        );
+        assertEquals(expected, zigzagLevelOrder1(root));
+        assertEquals(expected, zigzagLevelOrder2(root));
+    }
+
 
 }
