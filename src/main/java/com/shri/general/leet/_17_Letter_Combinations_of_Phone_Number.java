@@ -15,10 +15,7 @@ public class _17_Letter_Combinations_of_Phone_Number {
     public List<String> letterCombinations(String digits) {
 
         List<String> ans = new ArrayList<>();
-        int currentIndex = 0;
-
-        if (!digits.isEmpty()) buildPermutation("", currentIndex, ans, digits);
-
+        if (!digits.isEmpty()) buildPermutation("", 0, ans, digits);
         return ans;
     }
 
