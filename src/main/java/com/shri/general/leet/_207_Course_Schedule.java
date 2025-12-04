@@ -161,4 +161,13 @@ public class _207_Course_Schedule {
         assertFalse(cs.canFinish(10, prereqs));
     }
 
+    @Test
+    void testLargeGraphWithShri1() {
+        _207_Course_Schedule cs = new _207_Course_Schedule();
+        int[][] prereqs = {
+                {1,0},{2,0},{3,0},{3,1},{3,2}
+        };
+        assertTrue(cs.canFinish(4, prereqs));
+    }
+
 }
