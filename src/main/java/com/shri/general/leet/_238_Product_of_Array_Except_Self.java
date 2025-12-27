@@ -99,4 +99,11 @@ public class _238_Product_of_Array_Except_Self {
         Assertions.assertArrayEquals(expected, new _238_Product_of_Array_Except_Self().productExceptSelf(nums));
     }
 
+    @Test
+    void returnsProductExceptSelf_123() {
+        int[] nums = {1, 2, 3, 4};
+        int[] expected = {24, 12, 8, 6};
+        Assertions.assertArrayEquals(expected, new _238_Product_of_Array_Except_Self().productExceptSelf(nums));
+    }
+
 }
