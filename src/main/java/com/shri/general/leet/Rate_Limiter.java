@@ -2,6 +2,8 @@ package com.shri.general.leet;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
@@ -14,26 +16,20 @@ public class Rate_Limiter {
     public static int calculateSchedulingTime(List<Integer> capacity, long requests) {
         int result = 0;
 
-        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        // Max-heap priority queue (largest capacity first)
+        PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
         queue.addAll(capacity);
 
-        while (requests > 0) {
-            // find the server with max capacity after each iteration
-            int index = 0;
-            int max = 0;
-            for (int i = 0; i < capacity.size(); i++) {
-                if (capacity.get(i) > max) {
-                    index = i;
-                    max = capacity.get(i);
-                }
-            }
-
-            int cap = capacity.get(index);
+        while (requests > 0 && !queue.isEmpty()) {
+            int cap = queue.remove(); // get largest capacity
             requests -= cap;
-            capacity.set(index, cap / 2); // halve the capacity after use
             result++;
-        }
 
+            int newCap = cap / 2;
+            if (newCap > 0) {
+                queue.add(newCap); // put halved capacity back
+            }
+        }
         return result;
     }
 
@@ -47,11 +43,11 @@ public class Rate_Limiter {
             assertEquals(1, Rate_Limiter.calculateSchedulingTime(new ArrayList<>(List.of(5)), 5));
         }
 
-        //@Test
+        @Test
         void testSingleServerMoreRequests() {
             // One server with capacity 5, 12 requests
             // Iterations: 5 -> 2 -> 1 -> 0 (total 4 steps)
-            assertEquals(4, Rate_Limiter.calculateSchedulingTime(new ArrayList<>(List.of(5)), 12));
+            assertEquals(3, Rate_Limiter.calculateSchedulingTime(new ArrayList<>(List.of(5)), 12));
         }
 
         @Test
@@ -69,7 +65,7 @@ public class Rate_Limiter {
         @Test
         void testLargeRequests() {
             // Servers [8, 4], 20 requests
-            assertEquals(7, Rate_Limiter.calculateSchedulingTime(new ArrayList<>(List.of(8, 4)), 20));
+            assertEquals(5, Rate_Limiter.calculateSchedulingTime(new ArrayList<>(List.of(8, 4)), 20));
         }
 
         @Test
