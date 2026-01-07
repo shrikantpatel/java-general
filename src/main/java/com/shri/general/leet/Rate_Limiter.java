@@ -3,6 +3,7 @@ package com.shri.general.leet;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.Duration;
 import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
@@ -77,5 +78,15 @@ public class Rate_Limiter {
         void testEmptyCapacityList() {
             assertEquals(0, Rate_Limiter.calculateSchedulingTime(new ArrayList<>(), 0));
         }
+
+        @Test
+        void testExceedTimeout() {
+            // Very large requests to simulate long-running computation
+            // This test enforces that the method must finish within 1 second
+            assertTimeout(Duration.ofSeconds(1), () -> {
+                Rate_Limiter.calculateSchedulingTime(new ArrayList<>(List.of(1000, 500, 250)), 1_000_000);
+            });
+        }
+
     }
 }
