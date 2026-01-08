@@ -38,6 +38,9 @@ public class AsyncProcessor {
             return null;
         });
 
+        // End get printed before the the Result from Async Task 3, showing the asynchrnocity of the previous step.
+        System.out.println("End");
+
         // Keep the main thread alive to see the async result
         try {
             Thread.sleep(3000);
