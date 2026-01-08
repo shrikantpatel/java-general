@@ -11,8 +11,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class _54_Spiral_Matrix {
 
-    static class Direction {
-        int dr, dc; // Change in row and column
+    private static class Direction {
+        private final int dr;
+        private final int dc;
         Direction next;
 
         Direction(int dr, int dc) {
@@ -24,49 +25,51 @@ public class _54_Spiral_Matrix {
     public List<Integer> spiralOrder(int[][] matrix) {
 
         List<Integer> output = new ArrayList<>();
-        if (matrix.length == 0) return output;
+        if (matrix == null || matrix.length == 0) return output;
 
         // 1. Setup Circular Structure: Right -> Down -> Left -> Up -> (Back to Right)
         Direction right = new Direction(0, 1);
         Direction down = new Direction(1, 0);
         Direction left = new Direction(0, -1);
         Direction up = new Direction(-1, 0);
-
         right.next = down;
         down.next = left;
         left.next = up;
         up.next = right;
 
         // 2. Traversal Variables
-        int rows = matrix.length, cols = matrix[0].length;
-        int totalElements = rows * cols;
-        boolean[][] visited = new boolean[rows][cols];
+        int totalRow = matrix.length;
+        int totalCol = matrix[0].length;
+        int totalElements = totalRow * totalCol;
+        boolean[][] visited = new boolean[totalRow][totalCol];
 
         // Initialize the variables.
-        int r = 0, c = 0;
-        Direction current = right;
+        int col = 0;
+        int row = 0;
+        Direction direction = right;
 
         for (int i = 0; i < totalElements; i++) {
 
             // add cell to the output and mark it as visiteds
-            output.add(matrix[r][c]);
-            visited[r][c] = true;
+            output.add(matrix[row][col]);
+            visited[row][col] = true;
 
             // Calculate next potential move
-            int nextR = r + current.dr;
-            int nextC = c + current.dc;
+            int nextRow = row + direction.dr;
+            int nextCol = col + direction.dc;
 
             // 3. Boundary Check & Circular Transition
-            if (nextR < 0 || nextR >= rows || nextC < 0 || nextC >= cols || visited[nextR][nextC]) {
-                current = current.next; // Switch direction
-                nextR = r + current.dr;
-                nextC = c + current.dc;
+            if (nextRow < 0 || nextRow >= totalRow || nextCol < 0 || nextCol >= totalCol || visited[nextRow][nextCol]) {
+                direction = direction.next;
+                nextRow = row + direction.dr;
+                nextCol = col + direction.dc;
             }
 
-            r = nextR;
-            c = nextC;
+            row = nextRow;
+            col = nextCol;
         }
         return output;
+
     }
 
     @Test
