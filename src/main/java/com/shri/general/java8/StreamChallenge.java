@@ -77,5 +77,20 @@ public class StreamChallenge {
         highestPaid.ifPresent(e -> System.out.println("Highest Paid: " + e.name));
         System.out.println("Positions: " + employeesByPosition.keySet());
         System.out.println("NY Total Payroll: " + nyPayroll);
+
+        //Group employees by their city and compute the total payroll for each city.
+
+        //Find the top 3 highest‑paid employees across the company.
+
+        //Compute the average salary for each position.
+
+        //Group employees by the first letter of their name.
+
+        //Quickly check if there’s at least one employee based in New York.
+
+        //Split employees into two groups: above and below $100k.
+
+        //Count how many employees each department has.
+
     }
 }
