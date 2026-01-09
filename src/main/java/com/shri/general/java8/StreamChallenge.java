@@ -1,7 +1,7 @@
 package com.shri.general.java8;
 
 import java.util.*;
-import java.util.stream.*;
+import java.util.stream.Collectors;
 
 class Employee {
     String name;
@@ -46,19 +46,31 @@ public class StreamChallenge {
 
         // TODO 1: Get a unique list of all Cities where employees are based.
         // Hint: Use flatMap and distinct.
-        List<String> uniqueCities = departments.stream().flatMap(department -> department.employees.stream()).map(employee -> employee.city).collect(Collectors.toList());
+        List<String> uniqueCities = departments.stream()
+                .flatMap(dept -> dept.employees.stream())
+                .map(emp -> emp.city)
+                .distinct()
+                .toList();
 
         // TODO 2: Find the Employee with the highest salary across the whole company.
         // Hint: Use flatMap and max with a Comparator.
-        Optional<Employee> highestPaid = null;
+        Optional<Employee> highestPaid = departments.stream()
+                .flatMap(dept -> dept.employees.stream())
+                .max(Comparator.comparingDouble(emp -> emp.salary));
 
         // TODO 3: Group employees by their Position.
         // Hint: Use Collectors.groupingBy.
-        Map<String, List<Employee>> employeesByPosition = null;
+        Map<String, List<Employee>> employeesByPosition = departments.stream()
+                .flatMap(dept -> dept.employees.stream())
+                .collect(Collectors.groupingBy(emp -> emp.position));
 
         // TODO 4: Calculate the total payroll (sum of all salaries) for the "New York" office only.
         // Hint: Filter employees by city first, then mapToDouble and sum.
-        double nyPayroll = 0.0;
+        double nyPayroll = departments.stream()
+                .flatMap(dept -> dept.employees.stream())
+                .filter(emp -> ("New York").equals(emp.city))
+                .mapToDouble(emp -> emp.salary)
+                .sum();
 
         // --- Print Results ---
         System.out.println("Unique Cities: " + uniqueCities);
