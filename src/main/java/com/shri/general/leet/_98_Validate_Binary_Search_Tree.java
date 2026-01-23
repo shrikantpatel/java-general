@@ -6,7 +6,34 @@ package com.shri.general.leet;
 public class _98_Validate_Binary_Search_Tree {
 
     public boolean isValidBST(TreeNode root) {
-        return false;
+        // We start with null for both min and max because the root
+        // of the entire tree has no upper or lower constraints.
+        return isValidBST(root, null, null);
+    }
+
+    private boolean isValidBST(TreeNode root, Integer min, Integer max) {
+        // Base Case: An empty tree (or reaching past a leaf) is
+        // technically a valid BST.
+        if (root == null) return true;
+
+        // Check Lower Bound:
+        // If min is not null, we are in a right subtree where every
+        // node must be greater than 'min'. If the current value is
+        // less than or equal to 'min', it's invalid.
+        if (min != null && root.val <= min) return false;
+
+        // Check Upper Bound:
+        // If max is not null, we are in a left subtree where every
+        // node must be less than 'max'. If the current value is
+        // greater than or equal to 'max', it's invalid.
+        if (max != null && root.val >= max) return false;
+
+        // Recursive Step:
+        // 1. When going LEFT: The 'max' becomes the current node's value.
+        // 2. When going RIGHT: The 'min' becomes the current node's value.
+        // Both subtrees must return true for the whole tree to be valid.
+        return isValidBST(root.left, min, root.val) &&
+                isValidBST(root.right, root.val, max);
     }
 
 
