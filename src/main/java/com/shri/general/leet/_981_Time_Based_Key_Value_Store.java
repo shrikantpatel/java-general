@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 /**
  * https://leetcode.com/problems/time-based-key-value-store/
@@ -29,7 +28,7 @@ public class _981_Time_Based_Key_Value_Store {
 
     public String get(String key, int timestamp) {
         List<Pair> list = map.get(key);
-        if (list == null) return null;
+        if (list == null) return "";
         String result = "";
 
         int left = 0, right = list.size() - 1;
@@ -78,7 +77,7 @@ public class _981_Time_Based_Key_Value_Store {
             store.set("foo", "bar", 1);
 
             // Querying timestamp before any set → expect null
-            assertNull(store.get("foo", 0));
+            assertEquals("", store.get("foo", 0));
         }
 
         @Test
@@ -101,7 +100,7 @@ public class _981_Time_Based_Key_Value_Store {
 
             store.set("foo", "bar", 1);
 
-            assertNull(store.get("unknown", 5));
+            assertEquals("", store.get("unknown", 5));
         }
 
         @Test
