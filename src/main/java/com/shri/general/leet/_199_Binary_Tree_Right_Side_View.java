@@ -3,6 +3,7 @@ package com.shri.general.leet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Queue;
 
 /**
  * https://leetcode.com/problems/binary-tree-right-side-view/description/
@@ -11,25 +12,26 @@ public class _199_Binary_Tree_Right_Side_View {
 
     public List<Integer> rightSideView(TreeNode root) {
 
-        LinkedList<TreeNode> queue = new LinkedList<>();
         List<Integer> res = new ArrayList<>();
-
         if (root == null) return res;
 
-        queue.push(root);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
 
         while (!queue.isEmpty()) {
+            int levelSize = queue.size();
 
-            TreeNode[] list = queue.toArray(TreeNode[]::new);
-            queue.clear();
-            res.add(list[0].val);
-            for (TreeNode node :list) {
-                if (node.right != null) queue.add(node.right);
-                if (node.left != null) queue.add(node.left);
+            for (int i = 0; i < levelSize; i++) {
+                TreeNode node = queue.poll();
+
+                // The first node we encounter in this loop is the rightmost one
+                if (i == 0) res.add(node.val);
+
+                // Add right child first so it's at the front for the next level
+                if (node.right != null) queue.offer(node.right);
+                if (node.left != null) queue.offer(node.left);
             }
-
         }
-
         return res;
 
     }
