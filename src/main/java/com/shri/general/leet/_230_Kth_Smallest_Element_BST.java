@@ -35,27 +35,25 @@ public class _230_Kth_Smallest_Element_BST {
 
     public int kthSmallest(TreeNode root, int k) {
 
-        int answer = -1;
-        List<Integer> incrementValueArray = new ArrayList<Integer>();
+        int answer;
+        List<Integer> incrementValueArray = new ArrayList<>();
 
-        TreeNode currentNode = root;
-
-        dfs_PostOrderTrasversal(incrementValueArray, currentNode, k);
+        dfs_InOrderTrasversal(incrementValueArray, root, k);
         answer = incrementValueArray.get(k-1);
         return answer;
 
     }
 
-    private void dfs_PostOrderTrasversal(List<Integer> incrementValueArray, TreeNode node, int k) {
+    private void dfs_InOrderTrasversal(List<Integer> incrementValueArray, TreeNode node, int k) {
 
         if(node == null) return;
         if (counter >= k) return;
 
-        dfs_PostOrderTrasversal(incrementValueArray, node.left, k);
+        dfs_InOrderTrasversal(incrementValueArray, node.left, k);
         incrementValueArray.add(node.val);
         counter++;
         if (counter >= k) return;
-        dfs_PostOrderTrasversal(incrementValueArray, node.right, k);
+        dfs_InOrderTrasversal(incrementValueArray, node.right, k);
 
     }
 
