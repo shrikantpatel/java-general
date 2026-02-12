@@ -105,4 +105,16 @@ public class _139_Word_Break {
         _139_Word_Break solver = new _139_Word_Break();
         assertTrue(solver.wordBreak("applepenapple", List.of("apple", "pen")));
     }
+
+    @Test
+    void testCustomCase_abcd() {
+        _139_Word_Break solver = new _139_Word_Break();
+        assertTrue(solver.wordBreak("abcd", List.of("a", "abc", "b", "cd")));
+    }
+
+    @Test
+    void testCase_catsandogcat() {
+        _139_Word_Break solver = new _139_Word_Break();
+        assertTrue(solver.wordBreak("catsandogcat", List.of("cats", "dog", "sand", "and", "cat", "an")));
+    }
 }
