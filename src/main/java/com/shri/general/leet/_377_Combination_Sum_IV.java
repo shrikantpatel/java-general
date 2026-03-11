@@ -14,10 +14,7 @@ public class _377_Combination_Sum_IV {
 
     public int combinationSum4(int[] nums, int target) {
 
-        // dp[remain] will store the number of ways to form "remain"
-        // Using Integer (not int) so null means "not computed yet"
-        Integer[] dp = new Integer[target + 1];
-
+        Integer[] dp = new Integer[target+1];
         return dfs(nums, target, dp);
     }
 
@@ -30,25 +27,14 @@ public class _377_Combination_Sum_IV {
      */
     private int dfs(int[] nums, int remain, Integer[] dp) {
 
-        // Base case: exact match → 1 valid sequence
         if (remain == 0) return 1;
-
-        // Overshoot → no valid sequence
         if (remain < 0) return 0;
-
-        // If already computed, return cached value
         if (dp[remain] != null) return dp[remain];
 
         int ways = 0;
-
-        // Try every number as the next element in the sequence
         for (int num : nums) {
-            // Reduce the target and recurse
             ways += dfs(nums, remain - num, dp);
         }
-
-        // Store result to avoid recomputation
-        dp[remain] = ways;
 
         return ways;
     }
