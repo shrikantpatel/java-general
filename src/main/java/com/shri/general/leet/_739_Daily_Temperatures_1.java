@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * https://leetcode.com/problems/daily-temperatures/description/
  */
-public class _739_Daily_Temperatures {
+public class _739_Daily_Temperatures_1 {
 
     public int[] dailyTemperatures(int[] temperatures) {
 
@@ -68,7 +68,7 @@ public class _739_Daily_Temperatures {
 
     @Test
     public void testCustomCase_8970() {
-        _739_Daily_Temperatures sol = new _739_Daily_Temperatures();
+        _739_Daily_Temperatures_1 sol = new _739_Daily_Temperatures_1();
 
         int[] input = {89, 62, 70, 58, 47, 47, 46, 76, 100, 70};
         int[] expected = {8, 1, 5, 4, 3, 2, 1, 1, 0, 0};
@@ -78,7 +78,7 @@ public class _739_Daily_Temperatures {
 
     @Test
     public void testExample1() {
-        _739_Daily_Temperatures sol = new _739_Daily_Temperatures();
+        _739_Daily_Temperatures_1 sol = new _739_Daily_Temperatures_1();
 
         int[] input = {73, 74, 75, 71, 69, 72, 76, 73};
         int[] expected = {1, 1, 4, 2, 1, 1, 0, 0};
@@ -88,7 +88,7 @@ public class _739_Daily_Temperatures {
 
     @Test
     public void testAllIncreasing() {
-        _739_Daily_Temperatures sol = new _739_Daily_Temperatures();
+        _739_Daily_Temperatures_1 sol = new _739_Daily_Temperatures_1();
 
         int[] input = {30, 40, 50, 60};
         int[] expected = {1, 1, 1, 0};
@@ -98,7 +98,7 @@ public class _739_Daily_Temperatures {
 
     @Test
     public void testAllDecreasing() {
-        _739_Daily_Temperatures sol = new _739_Daily_Temperatures();
+        _739_Daily_Temperatures_1 sol = new _739_Daily_Temperatures_1();
 
         int[] input = {90, 80, 70, 60};
         int[] expected = {0, 0, 0, 0};
@@ -108,7 +108,7 @@ public class _739_Daily_Temperatures {
 
     @Test
     public void testSingleElement() {
-        _739_Daily_Temperatures sol = new _739_Daily_Temperatures();
+        _739_Daily_Temperatures_1 sol = new _739_Daily_Temperatures_1();
 
         int[] input = {100};
         int[] expected = {0};
@@ -118,7 +118,7 @@ public class _739_Daily_Temperatures {
 
     @Test
     public void testFlatTemperatures() {
-        _739_Daily_Temperatures sol = new _739_Daily_Temperatures();
+        _739_Daily_Temperatures_1 sol = new _739_Daily_Temperatures_1();
 
         int[] input = {50, 50, 50, 50};
         int[] expected = {0, 0, 0, 0};
@@ -128,7 +128,7 @@ public class _739_Daily_Temperatures {
 
     @Test
     public void testMixedPattern() {
-        _739_Daily_Temperatures sol = new _739_Daily_Temperatures();
+        _739_Daily_Temperatures_1 sol = new _739_Daily_Temperatures_1();
 
         int[] input = {60, 62, 61, 70, 65, 80};
         int[] expected = {1, 2, 1, 2, 1, 0};
